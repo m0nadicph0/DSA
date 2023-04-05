@@ -4,14 +4,16 @@ import (
 	"errors"
 )
 
+type Any interface{}
+
 type SliceStack struct {
-	buffer  []int
+	buffer  []Any
 	maxSize int
 }
 
 func NewSliceStack(size int) Stack {
 	return &SliceStack{
-		buffer:  make([]int, 0),
+		buffer:  make([]Any, 0),
 		maxSize: size,
 	}
 }
@@ -20,7 +22,7 @@ func (s *SliceStack) Size() int {
 	return len(s.buffer)
 }
 
-func (s *SliceStack) Push(value int) error {
+func (s *SliceStack) Push(value Any) error {
 	if len(s.buffer) >= s.maxSize {
 		return errors.New("stack is full")
 	}
@@ -28,7 +30,7 @@ func (s *SliceStack) Push(value int) error {
 	return nil
 }
 
-func (s *SliceStack) Pop() (int, error) {
+func (s *SliceStack) Pop() (Any, error) {
 	if len(s.buffer) == 0 {
 		return -1, errors.New("stack is empty")
 	}
@@ -37,7 +39,7 @@ func (s *SliceStack) Pop() (int, error) {
 	return topItem, nil
 }
 
-func (s *SliceStack) Peek() (int, error) {
+func (s *SliceStack) Peek() (Any, error) {
 	if len(s.buffer) == 0 {
 		return -1, errors.New("stack is empty")
 	}

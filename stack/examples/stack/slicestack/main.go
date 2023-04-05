@@ -18,7 +18,7 @@ func popItems(s stack.Stack) []int {
 	poppedItems := make([]int, 0)
 	for !s.IsEmpty() {
 		item, _ := s.Pop()
-		poppedItems = append(poppedItems, item)
+		poppedItems = append(poppedItems, item.(int))
 	}
 	return poppedItems
 }
