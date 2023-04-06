@@ -12,9 +12,10 @@ The basic operations of a stack are:
 
 ## Easy Problems
 
-1. Implement a stack using an array or a linked list.
-1. Check if a given string of parentheses is balanced.
+1. Implement a stack using a slice 
+1. Implement a stack using a linked list.
 1. Reverse a string using a stack.
+1. Check if a given string of parentheses is balanced.
 1. Convert an infix expression to postfix notation using a stack.
 1. Evaluate a postfix expression using a stack.
 1. Implement a stack that returns the minimum element in constant time.
