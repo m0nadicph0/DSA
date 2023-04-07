@@ -401,4 +401,57 @@ In this code, we define the `partition` function that initializes an empty resul
 
 The backtrack function checks if the current index is equal to the length of the input string, and if so, adds the current partition to the result slice and returns. Otherwise, it iterates over the string from the current index to the end, checking if each substring is a palindrome using the isPalindrome helper function. If a substring is a palindrome, it adds it to the current partition and calls the backtrack function recursively with the remaining part of the string (from the next index) and the updated partition. After exploring all possible paths from the current index, it removes the last added substring from the current partition to backtrack to the previous index.
 
+### Combination sum
+
+> Problem: Given a set of integers and a target sum, find all unique combinations of integers in the set that add up to the target sum. The same number may be used multiple times in a combination.
+
+Example:
+
+lua
+Copy code
+Input: candidates = [2,3,6,7], target = 7
+Output: [[2,2,3],[7]]
+Explanation:
+2+2+3=7 and 7=7 are the only two combinations that add up to the target sum 7.
+Solution: This problem can be solved using backtracking. The idea is to explore all possible combinations of integers in the set, keeping track of the current sum and the current combination. We can stop exploring a path if the current sum exceeds the target sum.
+
+Here are the steps to solve the problem in English:
+
+1. Sort the input set in non-descending order to avoid duplicate combinations.
+1. Define a recursive function called backtrack that takes the current combination, the current sum, and the current index as arguments.
+1. If the current sum equals the target sum, add the current combination to the list of found combinations.
+1. If the current sum exceeds the target sum or the current index is greater than the length of the set, stop exploring this path.
+1. Otherwise, for each index from the current index to the end of the set, add the number at the index to the current combination and call the backtrack function recursively with the updated combination, the updated sum (sum + number at index), and the same index.
+1. After exploring all possible paths from the current index, remove the last added number from the current combination to backtrack to the previous index.
+
+
+
+```go
+func combinationSum(candidates []int, target int) [][]int {
+    sort.Ints(candidates)
+    res := [][]int{}
+    backtrack(candidates, target, []int{}, 0, &res)
+    return res
+}
+
+func backtrack(candidates []int, target int, combination []int, index int, res *[][]int) {
+    if target == 0 {
+        *res = append(*res, combination)
+        return
+    }
+    for i := index; i < len(candidates); i++ {
+        if candidates[i] > target {
+            break
+        }
+        newComb := make([]int, len(combination)+1)
+        copy(newComb, combination)
+        newComb[len(newComb)-1] = candidates[i]
+        backtrack(candidates, target-candidates[i], newComb, i, res)
+    }
+}
+```
+
+In this code, we first sort the input set in non-descending order using sort.Ints(candidates) to avoid duplicate combinations. We then define the combinationSum function that initializes an empty result slice and calls the backtrack function with the input set, target sum, an empty combination slice, and the starting index 0.
+
+The backtrack function checks if the current sum equals the target sum and appends the current combination to the result slice if so. It then iterates over the set from the current index to the end, adding the number at each index to the current combination and calling the backtrack function recursively with the updated combination, updated sum (target - number at index), and the same index. Finally, after exploring all possible paths from the current index, the last added number is removed from the current combination to backtrack to the previous index.
 
