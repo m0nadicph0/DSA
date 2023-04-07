@@ -1,7 +1,7 @@
 # More exampes on backtracking
 
   * [N Queen problem](#n-queen-problem)
-  * [The Knight's tour problem](#the-knight-s-tour-problem)
+  * [The Knight's tour problem](#the-knights-tour-problem)
   * [15 Puzzle Problem](#15-puzzle-problem)
   * [Rat in a Maze problem](#rat-in-a-maze-problem)
   * [The Subset Sum problem](#the-subset-sum-problem)
