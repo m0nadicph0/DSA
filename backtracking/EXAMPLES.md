@@ -7,6 +7,7 @@
   * [The Subset Sum problem](#the-subset-sum-problem)
   * [The m Coloring problem](#the-m-coloring-problem)
   * [Hamiltonian Cycle problem](#hamiltonian-cycle-problem)
+  * [Sudoku](#sudoku)
 
 
 ## N Queen problem
@@ -665,5 +666,149 @@ The isSafe function checks whether it is safe to add a vertex to the current pat
 Finally, the main function initializes a sample graph and calls the hamiltonianCycle function to find a Hamiltonian Cycle in the graph. It prints the result to the console.
 
 ---
+## Sudoku
+
+The Sudoku problem is a classic example of a constraint satisfaction problem that can be solved using backtracking. The objective of the problem is to fill a 9x9 grid with digits such that each column, each row, and each of the nine 3x3 subgrids contains all of the digits from 1 to 9.
+
+The steps to solve the Sudoku problem using backtracking are as follows:
+
+1. Start with an incomplete Sudoku grid. Empty cells are represented by 0.
+1. Pick an empty cell in the grid and try to fill it with a digit between 1 and 9.
+1. Check whether the digit can be placed in the current cell without violating any of the Sudoku constraints. If it can, place the digit in the cell and move on to the next empty cell.
+1. If the digit cannot be placed in the current cell without violating the constraints, backtrack and try a different digit.
+1. If all the cells in the grid have been filled without violating the constraints, return the completed grid.
+1. If it is not possible to fill the grid without violating the constraints, backtrack until a different digit can be tried.
+1. Repeat steps 2-6 until the grid is completed.
+
+Here's an example of how the backtracking algorithm might solve a Sudoku puzzle:
+
+```
+5 3 0 | 0 7 0 | 0 0 0
+6 0 0 | 1 9 5 | 0 0 0
+0 9 8 | 0 0 0 | 0 6 0
+------+------+------
+8 0 0 | 0 6 0 | 0 0 3
+4 0 0 | 8 0 3 | 0 0 1
+7 0 0 | 0 2 0 | 0 0 6
+------+------+------
+0 6 0 | 0 0 0 | 2 8 0
+0 0 0 | 4 1 9 | 0 0 5
+0 0 0 | 0 8 0 | 0 7 9
+```
+
+1. Start with the incomplete grid.
+1. Pick the first empty cell, which is in row 1, column 3.
+1. Try filling the cell with the digit 1. Check the row, column, and 3x3 subgrid constraints. The digit can be placed in the cell without violating any of the constraints.
+1. Move on to the next empty cell, which is in row 1, column 4.
+1. Try filling the cell with the digit 1. Check the row, column, and 3x3 subgrid constraints. The digit cannot be placed in the cell without violating the column constraint, as there is already a 1 in the same column.
+1. Backtrack to the previous cell, which is in row 1, column 3.
+1. Try filling the cell with the digit 2. Check the row, column, and 3x3 subgrid constraints. The digit can be placed in the cell without violating any of the constraints.
+1. Move on to the next empty cell, which is in row 1, column 7.
+1. Try filling the cell with the digit 1. Check the row, column, and 3x3 subgrid constraints. The digit can be placed in the cell without violating any of the constraints.
+1. Move on to the next empty cell, which is in row 2, column 2.
+1. Try filling the cell with the digit 1. Check the row, column, and 3x3 subgrid constraints
+
+```go
+package main
+
+import "fmt"
+
+const n int = 9 // size of the sudoku board
+
+func solveSudoku(board *[n][n]int) bool {
+    var row, col int
+    if !findEmptyCell(board, &row, &col) { // if there are no empty cells, the board is already solved
+        return true
+    }
+
+    for num := 1; num <= 9; num++ { // try numbers 1 to 9 in the empty cell
+        if isSafe(board, row, col, num) { // if the number is safe to place
+            board[row][col] = num
+
+            if solveSudoku(board) { // recursively solve the remaining board
+                return true
+            }
+
+            board[row][col] = 0 // backtrack by removing the number and trying the next one
+        }
+    }
+
+    return false // if no number can be placed, backtrack
+}
+
+// finds the next empty cell in the board and updates the row and col values accordingly
+func findEmptyCell(board *[n][n]int, row, col *int) bool {
+    for i := 0; i < n; i++ {
+        for j := 0; j < n; j++ {
+            if board[i][j] == 0 {
+                *row = i
+                *col = j
+                return true
+            }
+        }
+    }
+    return false // if there are no empty cells, return false
+}
+
+// checks if it is safe to place the given number in the given row and column of the board
+func isSafe(board *[n][n]int, row, col, num int) bool {
+    // check if num is already in the same row or column
+    for i := 0; i < n; i++ {
+        if board[row][i] == num || board[i][col] == num {
+            return false
+        }
+    }
+
+    // check if num is already in the same 3x3 subgrid
+    subgridRow := row - row%3
+    subgridCol := col - col%3
+    for i := subgridRow; i < subgridRow+3; i++ {
+        for j := subgridCol; j < subgridCol+3; j++ {
+            if board[i][j] == num {
+                return false
+            }
+        }
+    }
+
+    return true // if num can be placed, return true
+}
+
+// utility function to print the board
+func printBoard(board [n][n]int) {
+    for i := 0; i < n; i++ {
+        for j := 0; j < n; j++ {
+            fmt.Printf("%d ", board[i][j])
+        }
+        fmt.Println()
+    }
+}
+
+func main() {
+	board := [][]int{
+		{3, 0, 6, 5, 0, 8, 4, 0, 0},
+		{5, 2, 0, 0, 0, 0, 0, 0, 0},
+		{0, 8, 7, 0, 0, 0, 0, 3, 1},
+		{0, 0, 3, 0, 0, 0, 0, 2, 0},
+		{9, 0, 0, 8, 0, 0, 0, 0, 5},
+		{0, 5, 0, 0, 0, 0, 6, 0, 0},
+		{1, 3, 0, 0, 0, 0, 2, 5, 0},
+		{0, 0, 0, 0, 0, 0, 0, 7, 4},
+		{0, 0, 5, 2, 0, 6, 3, 0, 0},
+	}
+
+	if solveSudoku(board) {
+		fmt.Println("Solution:")
+		printBoard(board)
+	} else {
+		fmt.Println("No solution exists.")
+	}
+}
+
+```
+
+In this example, we have hardcoded a Sudoku puzzle as a 2D slice of integers, with 0 representing an empty cell. The solveSudoku function is called to solve the puzzle, and if a solution is found, the board is printed using the printBoard function. If no solution is found, a message is printed to indicate that there is no solution.
+
+---
+
 
 
