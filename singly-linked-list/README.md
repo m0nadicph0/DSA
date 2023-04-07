@@ -1,3 +1,5 @@
+# Singly linked lists
+
 Singly linked lists are a type of data structure that consists of a series of nodes, each of which contains a value and a reference to the next node in the sequence. The basic operations that can be performed on a singly linked list include:
 
 1. **Insertion**: Inserting a new node at the beginning, end or at any given position of the list.
