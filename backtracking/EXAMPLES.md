@@ -87,3 +87,151 @@ The printSolution function simply prints the chessboard with the sequence of mov
 When the program is run, it will output the sequence of moves that the knight made on the chessboard. 
 If no solution exists, it will print "No solution"
 
+## 15 Puzzle Problem
+
+The 15 Puzzle is a popular sliding puzzle game consisting of 15 numbered square tiles in a 4x4 grid, with one empty space where tiles can be moved. The goal of the game is to arrange the tiles in ascending order from left to right, top to bottom, with the empty space in the bottom-right corner.
+
+Backtracking is a recursive algorithm used to solve combinatorial problems, where we explore all possible solutions and backtrack if we reach an invalid solution. In the context of the 15 Puzzle, we can use backtracking to explore all possible moves and their consequences until we find a solution.
+
+Here are the steps to solve the 15 Puzzle using backtracking:
+
+1. Define the initial state of the puzzle, which is a 4x4 grid with the tiles arranged in any order, and one empty space.
+2. Define the goal state of the puzzle, which is a 4x4 grid with the tiles arranged in ascending order, and one empty space in the bottom-right corner.
+3. Define the possible moves that can be made in the puzzle, which are moving a tile up, down, left or right into the empty space.
+4. Use recursion to explore all possible moves from the initial state, and their consequences.
+5. If a move leads to the goal state, return that state as the solution.
+6. If a move leads to an invalid state (e.g. two tiles are in the same position), backtrack and try a different move.
+7. If all possible moves have been explored and none lead to the goal state, backtrack to the previous state and try a different move.
+8. Repeat steps 4-7 until a solution is found.
+
+To optimize the backtracking algorithm, we can use heuristics to guide the search towards the goal state. For example, we can use the Manhattan distance heuristic to calculate the total distance between each tile and its correct position, and prioritize moves that reduce the total distance.
+
+Overall, backtracking is a powerful algorithm for solving combinatorial problems like the 15 Puzzle, but it can be computationally expensive for larger problem sizes.
+
+```go
+package main
+
+import (
+    "fmt"
+)
+
+type Board [4][4]int
+
+type Node struct {
+    board    Board
+    moves    []string
+    emptyRow int
+    emptyCol int
+}
+
+func (b Board) String() string {
+    s := ""
+    for i := 0; i < 4; i++ {
+        for j := 0; j < 4; j++ {
+            s += fmt.Sprintf("%2d ", b[i][j])
+        }
+        s += "\n"
+    }
+    return s
+}
+
+func (n *Node) Move(dir string) (*Node, bool) {
+    switch dir {
+    case "up":
+        if n.emptyRow == 0 {
+            return nil, false
+        }
+        newBoard := n.board
+        newBoard[n.emptyRow][n.emptyCol] = newBoard[n.emptyRow-1][n.emptyCol]
+        newBoard[n.emptyRow-1][n.emptyCol] = 0
+        return &Node{newBoard, append(n.moves, dir), n.emptyRow - 1, n.emptyCol}, true
+    case "down":
+        if n.emptyRow == 3 {
+            return nil, false
+        }
+        newBoard := n.board
+        newBoard[n.emptyRow][n.emptyCol] = newBoard[n.emptyRow+1][n.emptyCol]
+        newBoard[n.emptyRow+1][n.emptyCol] = 0
+        return &Node{newBoard, append(n.moves, dir), n.emptyRow + 1, n.emptyCol}, true
+    case "left":
+        if n.emptyCol == 0 {
+            return nil, false
+        }
+        newBoard := n.board
+        newBoard[n.emptyRow][n.emptyCol] = newBoard[n.emptyRow][n.emptyCol-1]
+        newBoard[n.emptyRow][n.emptyCol-1] = 0
+        return &Node{newBoard, append(n.moves, dir), n.emptyRow, n.emptyCol - 1}, true
+    case "right":
+        if n.emptyCol == 3 {
+            return nil, false
+        }
+        newBoard := n.board
+        newBoard[n.emptyRow][n.emptyCol] = newBoard[n.emptyRow][n.emptyCol+1]
+        newBoard[n.emptyRow][n.emptyCol+1] = 0
+        return &Node{newBoard, append(n.moves, dir), n.emptyRow, n.emptyCol + 1}, true
+    }
+    return nil, false
+}
+
+func (n *Node) IsGoal() bool {
+    for i := 0; i < 4; i++ {
+        for j := 0; j < 4; j++ {
+            if i == 3 && j == 3 {
+                return true
+            }
+            if n.board[i][j] != i*4+j+1 {
+                return false
+            }
+        }
+    }
+    return true
+}
+
+func Solve(start Board) ([]string, bool) {
+    queue := []*Node{{start, []string{}, 3, 3}}
+    visited := make(map[Board]bool)
+    for len(queue) > 0 {
+        curr := queue[0]
+        queue = queue[1:]
+        if curr.IsGoal() {
+            return curr.moves, true
+        }
+        visited[curr.board] = true
+        for _, dir := range []string{"up", "down", "left", "right"} {
+            next, ok := curr.Move(dir)
+            if ok && !visited[next.board] {
+                queue = append(queue, next)
+            }
+        }
+    }
+    return nil, false
+}
+    
+```
+This function uses a breadth-first search algorithm to explore the state space of the puzzle. It starts by adding the starting board to a queue of nodes to visit. Then, it repeatedly dequeues a node from the front of the queue, checks if it is the goal state, and if not, generates all possible moves from that state and adds them to the back of the queue (if they have not already been visited). The algorithm continues until the goal state is found or the queue is empty (in which case the puzzle is unsolvable).
+
+```
+func main() {
+    start := Board{
+        {1, 2, 3, 4},
+        {5, 6, 7, 8},
+        {9, 10, 0, 12},
+        {13, 14, 11, 15},
+    }
+    fmt.Println("Starting board:")
+    fmt.Println(start)
+    moves, ok := Solve(start)
+    if ok {
+        fmt.Println("Solution found in", len(moves), "moves:")
+        for _, move := range moves {
+            fmt.Println(move)
+        }
+    } else {
+        fmt.Println("Puzzle is unsolvable")
+    }
+}
+```
+The `main` function creates a starting board, calls the Solve function to find a solution (if possible), and prints out the solution moves (if found) or a message indicating that the puzzle is unsolvable.
+
+
+
