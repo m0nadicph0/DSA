@@ -455,3 +455,68 @@ In this code, we first sort the input set in non-descending order using sort.Int
 
 The backtrack function checks if the current sum equals the target sum and appends the current combination to the result slice if so. It then iterates over the set from the current index to the end, adding the number at each index to the current combination and calling the backtrack function recursively with the updated combination, updated sum (target - number at index), and the same index. Finally, after exploring all possible paths from the current index, the last added number is removed from the current combination to backtrack to the previous index.
 
+### Unique paths
+
+Problem: Given a matrix of integers, matrix, find all unique paths from the top-left corner to the bottom-right corner, where you can only move down or right.
+
+**Example Input:**
+
+```
+matrix = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+]
+```
+
+**Example Output:**
+
+```
+[[1, 4, 7, 8, 9], [1, 4, 5, 8, 9], [1, 2, 5, 8, 9], [1, 2, 5, 6, 9], [1, 2, 3, 6, 9]]
+```
+Solution:
+
+The idea behind the solution is to use backtracking to explore all possible paths from the top-left corner to the bottom-right corner. We can start at the top-left corner and recursively explore all possible paths by either moving down or right until we reach the bottom-right corner.
+
+We can represent each path as a list of integers, where each integer represents the value of the corresponding cell in the matrix. We can use a helper function dfs to perform the backtracking. The function takes the current position (i, j) in the matrix, the current path path, and the set of all unique paths result.
+
+At each step, we check if we have reached the bottom-right corner of the matrix. If so, we add the current path to the set of all unique paths. Otherwise, we explore all possible paths by moving down and right, and recursively call the dfs function with the updated position and path.
+
+
+```go
+func uniquePaths(matrix [][]int) [][]int {
+    result := [][]int{}
+    path := []int{}
+    dfs(matrix, 0, 0, path, &result)
+    return result
+}
+
+func dfs(matrix [][]int, i, j int, path []int, result *[][]int) {
+    if i == len(matrix)-1 && j == len(matrix[0])-1 {
+        // reached the bottom-right corner
+        path = append(path, matrix[i][j])
+        *result = append(*result, append([]int{}, path...))
+        return
+    }
+    
+    if i < len(matrix)-1 {
+        // move down
+        path = append(path, matrix[i][j])
+        dfs(matrix, i+1, j, path, result)
+        path = path[:len(path)-1]
+    }
+    
+    if j < len(matrix[0])-1 {
+        // move right
+        path = append(path, matrix[i][j])
+        dfs(matrix, i, j+1, path, result)
+        path = path[:len(path)-1]
+    }
+}
+```
+
+We first create an empty slice result to store all the unique paths. We then call the dfs function with the starting position (0, 0), an empty path, and a reference to the result slice.
+
+In the dfs function, we first check if we have reached the bottom-right corner of the matrix. If so, we append the current cell value to the path, make a copy of the path using append([]int{}, path...), and append it to the result slice.
+
+Otherwise, we explore all possible paths by moving down and right, and recursively calling the dfs function with the updated position and path. We append the current cell value to the path before each recursive call, and remove it after each call using `
