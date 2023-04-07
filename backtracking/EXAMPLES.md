@@ -1,6 +1,16 @@
 # More exampes on backtracking
 
-## 
+  * [N Queen problem](#n-queen-problem)
+  * [The Knight's tour problem](#the-knight-s-tour-problem)
+  * [15 Puzzle Problem](#15-puzzle-problem)
+  * [Rat in a Maze problem](#rat-in-a-maze-problem)
+  * [The Subset Sum problem](#the-subset-sum-problem)
+  * [The m Coloring problem](#the-m-coloring-problem)
+  * [Hamiltonian Cycle problem](#hamiltonian-cycle-problem)
+
+
+## N Queen problem
+
 The N Queen problem is a classic problem in computer science that involves placing N chess queens on an NxN chessboard so that no two queens threaten each other. In other words, no two queens can share the same row, column, or diagonal.
 
 Here are the steps to solve the N Queen problem using backtracking:
