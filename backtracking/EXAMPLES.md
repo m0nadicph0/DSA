@@ -483,4 +483,76 @@ The above code finds all the subsets of the given set of numbers nums that add u
 ```
 
 ---
+## The m Coloring problem
 
+The `m Coloring problem` is a classic problem in computer science where we are given a graph and we need to color the nodes of the graph with m colors such that no two adjacent nodes have the same color.
+
+Here are the steps to solve the m Coloring problem using backtracking:
+
+1. Initialize an array colors of size n (where n is the number of nodes in the graph) with all elements set to 0. Each element of colors represents the color assigned to the corresponding node.
+2. Consider coloring the first node of the graph with the first color. If the coloring is valid (i.e., no adjacent nodes have the same color), move to step 3. Otherwise, move to step 4.
+3. Recursively color the next node of the graph with the next available color. If all nodes are colored, we have found a valid coloring. If not, move to step 4.
+4. If we cannot color a node with the current color, backtrack by changing the color of the last node colored and move to step 3. If we have tried all colors for the last node, backtrack further by changing the color of the second-to-last node colored and move to step 3. If we have backtracked all the way to the first node and still cannot find a valid coloring, the problem has no solution.
+
+We can implement the above steps using backtracking in the following function:
+
+```go
+
+func mColoring(graph [][]int, m int) []int {
+    n := len(graph)
+    colors := make([]int, n)
+
+    var backtrack func(node int) bool
+    backtrack = func(node int) bool {
+        if node == n {
+            return true
+        }
+        for color := 1; color <= m; color++ {
+            if isValidColor(graph, colors, node, color) {
+                colors[node] = color
+                if backtrack(node + 1) {
+                    return true
+                }
+                colors[node] = 0
+            }
+        }
+        return false
+    }
+
+    if backtrack(0) {
+        return colors
+    }
+    return nil
+}
+
+func isValidColor(graph [][]int, colors []int, node int, color int) bool {
+    for _, neighbor := range graph[node] {
+        if colors[neighbor] == color {
+            return false
+        }
+    }
+    return true
+}
+```
+
+The mColoring function takes in a graph represented as an adjacency matrix graph and the number of colors m and returns an array of size n where n is the number of nodes in the graph. Each element of the array represents the color assigned to the corresponding node. The function works by recursively trying to color each node of the graph with one of the m available colors. The backtrack function takes in the index of the current node being considered and returns true if a valid coloring has been found and false otherwise. The isValidColor function checks if the current color is valid for the current node by checking if any of its neighbors have the same color.
+
+Here's an example usage of the function:
+
+```go
+func main() {
+    graph := [][]int{
+        {0, 1, 1, 1},
+        {1, 0, 1, 0},
+        {1, 1, 0, 1},
+        {1, 0, 1, 0},
+    }
+    m := 3
+    colors := mColoring(graph, m)
+    if colors == nil {
+        fmt.Println("No valid coloring found.")
+    } else {
+        fmt.Println(colors)
+    }
+}
+```
