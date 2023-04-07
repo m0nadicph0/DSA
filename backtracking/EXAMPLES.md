@@ -1,4 +1,121 @@
 # More exampes on backtracking
+
+## 
+The N Queen problem is a classic problem in computer science that involves placing N chess queens on an NxN chessboard so that no two queens threaten each other. In other words, no two queens can share the same row, column, or diagonal.
+
+Here are the steps to solve the N Queen problem using backtracking:
+
+Define a function that takes as input the current state of the board, the current column, and the number of queens to place. The current state of the board should be represented as an array of integers, where each integer represents the row of the queen in the corresponding column. If a queen has not yet been placed in a column, the corresponding integer should be set to -1.
+
+If the current column is equal to the number of queens, the board is complete and we have found a solution. Return true to indicate success.
+
+Loop over all possible rows in the current column. For each row, check if placing a queen in that row would result in a valid board state. To do this, check if the current row is already occupied by another queen, if any queen in a previous column threatens the current position, and if any queen in a diagonal threatens the current position.
+
+If the current row is valid, place a queen in that row and recurse on the next column.
+
+If the recursion on the next column returns true, a solution has been found, so return true to indicate success.
+
+If the recursion on the next column returns false, backtrack by removing the queen from the current position and trying the next row.
+
+If none of the possible rows in the current column resulted in a valid board state, return false to indicate failure.
+
+```go
+func NQueens(n int) [][]int {
+    board := make([]int, n)
+    for i := 0; i < n; i++ {
+        board[i] = -1
+    }
+    var solutions [][]int
+    solveNQueens(board, 0, &solutions)
+    return solutions
+}
+
+func solveNQueens(board []int, col int, solutions *[][]int) {
+    if col == len(board) {
+        // Base case: all queens placed successfully
+        *solutions = append(*solutions, append([]int{}, board...))
+        return
+    }
+    for row := 0; row < len(board); row++ {
+        if isValid(board, row, col) {
+            board[col] = row
+            solveNQueens(board, col+1, solutions)
+            board[col] = -1
+        }
+    }
+}
+
+func isValid(board []int, row, col int) bool {
+    for i := 0; i < col; i++ {
+        if board[i] == row {
+            // Check if the row is already occupied by a queen
+            return false
+        }
+        if abs(board[i]-row) == abs(i-col) {
+            // Check if the diagonal is threatened by a queen
+            return false
+        }
+    }
+    return true
+}
+
+func abs(x int) int {
+    if x < 0 {
+        return -x
+    }
+    return x
+}
+
+```
+
+And finally the `main` function is as follows:
+
+```go
+
+func main() {
+    n := 4
+    solutions := NQueens(n)
+    fmt.Printf("Solutions for %d queens:\n", n)
+    for _, solution := range solutions {
+        for _, row := range solution {
+            for i := 0; i < n; i++ {
+                if i == row {
+                    fmt.Print("Q ")
+                } else {
+                    fmt.Print(". ")
+                }
+            }
+            fmt.Println()
+        }
+        fmt.Println()
+    }
+}
+
+```
+The NQueens function initializes the board and calls the solveNQueens function to solve the problem. The solveNQueens function uses backtracking to recursively place queens on the board, and stores all valid solutions in the solutions slice.
+
+The isValid function checks if a given position is a valid placement for a queen by checking if the row and diagonal are free of any other queens.
+
+Note that this implementation stores all valid solutions in a slice,
+
+
+This main function sets n to 4, calls the NQueens function to find all solutions for 4 queens, and then prints each solution in a human-readable format. The output should look like this:
+```
+Solutions for 4 queens:
+. Q . .
+. . . Q
+Q . . .
+. . Q .
+    
+. . Q .
+Q . . .
+. . . Q
+. Q . .
+
+```
+
+---
+
 ## The Knight's tour problem
 
 The Knight's tour problem is a classic puzzle that involves finding a sequence of moves for a knight on a 
@@ -87,6 +204,7 @@ The printSolution function simply prints the chessboard with the sequence of mov
 When the program is run, it will output the sequence of moves that the knight made on the chessboard. 
 If no solution exists, it will print "No solution"
 
+---
 ## 15 Puzzle Problem
 
 The 15 Puzzle is a popular sliding puzzle game consisting of 15 numbered square tiles in a 4x4 grid, with one empty space where tiles can be moved. The goal of the game is to arrange the tiles in ascending order from left to right, top to bottom, with the empty space in the bottom-right corner.
@@ -312,4 +430,5 @@ In this example, we define a 2D array maze that represents a 4x4 maze. We then c
 
 If a path was found, we print out the path in reverse order (since we built it up from the goal position backwards), with each position represented as a tuple of row and column coordinates. If no path was found, we print a message indicating that.
 
-
+---
+## 
