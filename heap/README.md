@@ -51,6 +51,35 @@ The time complexity of these operations can vary depending on the implementation
 common time complexities are `O(log n)` for insertion, deletion, and peek, and `O(n)` for heapify 
 and merge.
 
+## Implementation notes
+
+### Using slices
+A heap can be implemented with a slice in the following way:
+
+1. The root element is stored at index `0` in the slice.
+2. For any element at index `i`, its left child is stored at index `2i+1`, and its right child is stored at index `2i+2`.
+3. For any element at index `i`, its parent is stored at index `floor((i-1)/2)`.
+
+To insert a new element in the heap, we can add it to the end of the slice and then compare it with its parent. If the new element is greater than its parent, we swap them and repeat the process until the new element is in the correct position.
+
+To remove the minimum element from the heap, we swap the root element with the last element in the slice and remove the last element. Then, we compare the new root element with its children, and swap it with the smaller of its two children if necessary, until it is in the correct position.
+
+This implementation of heap data structure with a slice has a time complexity of `O(log n)` for insert and remove operations. It also has a space complexity of `O(n)`, where n is the number of elements in the heap.
+
+### Using trees
+
+A heap can be implemented with a binary tree in the following way:
+
+1. The root element is stored at the top of the tree.
+2. For any element in the tree, its left child is stored in the left subtree of that element, and its right child is stored in the right subtree of that element.
+3. The heap property is maintained by ensuring that for any given node, the value of its parent node is less than or equal to the value of that node.
+
+To insert a new element in the heap, we can add it as a new leaf node to the bottom of the tree. Then, we compare its value with that of its parent node, and if the parent node's value is greater, we swap the two nodes. We repeat this process up the tree until the new element is in the correct position.
+
+To remove the minimum element from the heap, we replace the root node with the last leaf node in the tree. Then, we compare the new root node with its children, and swap it with the smaller of its two children if necessary. We repeat this process down the tree until the new root node is in the correct position.
+
+This implementation of heap data structure with a binary tree has a time complexity of O(log n) for insert and remove operations, where n is the number of elements in the heap. It also has a space complexity of O(n), where n is the number of elements in the heap. However, it can be more complicated to implement than the slice-based implementation.
+
 ## Easy problems
 
 1. Find the kth smallest element in an unsorted array of integers.
