@@ -210,7 +210,7 @@ func Solve(start Board) ([]string, bool) {
 ```
 This function uses a breadth-first search algorithm to explore the state space of the puzzle. It starts by adding the starting board to a queue of nodes to visit. Then, it repeatedly dequeues a node from the front of the queue, checks if it is the goal state, and if not, generates all possible moves from that state and adds them to the back of the queue (if they have not already been visited). The algorithm continues until the goal state is found or the queue is empty (in which case the puzzle is unsolvable).
 
-```
+```go
 func main() {
     start := Board{
         {1, 2, 3, 4},
@@ -233,5 +233,83 @@ func main() {
 ```
 The `main` function creates a starting board, calls the Solve function to find a solution (if possible), and prints out the solution moves (if found) or a message indicating that the puzzle is unsolvable.
 
+## Rat in a Maze problem
+
+The **"Rat in a Maze"** problem is a classic example of a problem that can be solved using backtracking. The problem is as follows: imagine a maze represented as a 2D array of 0s and 1s, where 0s represent walls and 1s represent open spaces. There is a rat starting at the top-left corner of the maze, and it wants to reach the bottom-right corner. The rat can only move down or right, and it cannot move through walls. The goal is to find a path for the rat from the starting position to the goal position, if one exists.
+
+Here are the steps to solve this problem using backtracking:
+
+1. Start at the top-left corner of the maze. If this position is the goal position, then we are done. Otherwise, mark the position as visited.
+2. Generate all possible moves from the current position (i.e., move down or right one square). If a move is invalid (i.e., it would take the rat through a wall or off the edge of the maze), discard it.
+3. For each valid move, recursively call the backtracking function with the new position as the current position.
+4. If the function returns true (i.e., a path to the goal position was found), then add the current position to the path and return true.
+5. If none of the moves lead to a solution, then backtrack by unmarking the current position as visited and returning false.
+6. Repeat steps 2-5 until a solution is found or all possible paths have been explored.
+
+```go
+type Point struct {
+    row, col int
+}
+
+func RatInAMaze(maze [][]int) ([]Point, bool) {
+    path := []Point{}
+    visited := make(map[Point]bool)
+    if solveRatInAMaze(maze, Point{0, 0}, visited, &path) {
+        return path, true
+    }
+    return nil, false
+}
+
+func solveRatInAMaze(maze [][]int, curr Point, visited map[Point]bool, path *[]Point) bool {
+    if curr.row == len(maze)-1 && curr.col == len(maze[0])-1 {
+        // We have reached the goal
+        *path = append(*path, curr)
+        return true
+    }
+    visited[curr] = true
+    moves := []Point{{1, 0}, {0, 1}} // Down, right
+    for _, move := range moves {
+        next := Point{curr.row + move.row, curr.col + move.col}
+        if next.row >= 0 && next.row < len(maze) && next.col >= 0 && next.col < len(maze[0]) && maze[next.row][next.col] == 1 && !visited[next] {
+            if solveRatInAMaze(maze, next, visited, path) {
+                *path = append(*path, curr)
+                return true
+            }
+        }
+    }
+    visited[curr] = false // backtrack
+    return false
+}
+```
+
+This implementation uses a recursive backtracking function called solveRatInAMaze to explore the state space of the maze. The function takes the current position, a set of visited positions, and a pointer to the current path as arguments. It returns true if a path to the goal position was found, and false otherwise.
+
+The RatInAMaze function is a wrapper function that initializes the visited set and calls solveRatInAMaze with the starting position. If a path is found, it returns the path and true. If no path is found, it returns
+
+Finally the `main` function is as follows:
+
+```go
+func main() {
+    maze := [][]int{
+        {1, 0, 0, 0},
+        {1, 1, 0, 1},
+        {0, 1, 0, 0},
+        {1, 1, 1, 1},
+    }
+    path, found := RatInAMaze(maze)
+    if found {
+        fmt.Println("Path found:")
+        for i := len(path) - 1; i >= 0; i-- {
+            fmt.Printf("(%d, %d)\n", path[i].row, path[i].col)
+        }
+    } else {
+        fmt.Println("No path found.")
+    }
+}
+```
+
+In this example, we define a 2D array maze that represents a 4x4 maze. We then call the RatInAMaze function with the maze as an argument, and store the resulting path and a boolean flag indicating whether a path was found.
+
+If a path was found, we print out the path in reverse order (since we built it up from the goal position backwards), with each position represented as a tuple of row and column coordinates. If no path was found, we print a message indicating that.
 
 
