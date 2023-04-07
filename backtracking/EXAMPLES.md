@@ -556,3 +556,104 @@ func main() {
     }
 }
 ```
+
+---
+## Hamiltonian Cycle problem
+
+The Hamiltonian Cycle problem is a classic problem in graph theory that asks whether a given graph contains a cycle that visits every vertex exactly once. The problem is NP-complete, which means that it is unlikely that there exists a polynomial time algorithm to solve it for all cases.
+
+To solve the Hamiltonian Cycle problem using backtracking, we can start with an arbitrary vertex and try to construct a path that visits all other vertices exactly once and ends at the starting vertex. We can do this by recursively extending the path by adding a new vertex to the end and checking if the resulting path is valid. If we can successfully extend the path to include all vertices, we have found a Hamiltonian Cycle.
+
+The basic steps of the backtracking algorithm for the Hamiltonian Cycle problem are as follows:
+
+1. Start with an arbitrary vertex as the starting vertex.
+1. Initialize a path array to store the vertices in the order in which they are visited.
+1. Mark the starting vertex as visited and add it to the path.
+1. For each unvisited neighbor of the current vertex, add the neighbor to the path and mark it as visited.
+1. If all vertices have been visited and the last vertex has an edge to the starting vertex, then a Hamiltonian Cycle has been found. Return the path.
+1. If there are still unvisited vertices, recursively call the algorithm with the current vertex set as the new starting vertex.
+1. If the recursive call returns a Hamiltonian Cycle, return the path.
+1. If no Hamiltonian Cycle is found, backtrack by removing the last vertex from the path and marking it as unvisited.
+1. Repeat steps 4-8 until a Hamiltonian Cycle is found or all possibilities have been exhausted.
+
+The implementation in Go is as follows:
+
+```go
+package main
+
+import "fmt"
+
+func hamiltonianCycle(graph [][]int) []int {
+	n := len(graph)
+	path := make([]int, n)
+	visited := make([]bool, n)
+	path[0] = 0
+	visited[0] = true
+	if hamiltonianCycleUtil(graph, path, visited, 1) {
+		return path
+	}
+	return []int{}
+}
+
+func hamiltonianCycleUtil(graph [][]int, path []int, visited []bool, pos int) bool {
+	n := len(graph)
+	if pos == n {
+		if graph[path[pos-1]][path[0]] == 1 {
+			return true
+		}
+		return false
+	}
+	for v := 1; v < n; v++ {
+		if isSafe(graph, v, path, visited, pos) {
+			path[pos] = v
+			visited[v] = true
+			if hamiltonianCycleUtil(graph, path, visited, pos+1) {
+				return true
+			}
+			path[pos] = -1
+			visited[v] = false
+		}
+	}
+	return false
+}
+
+func isSafe(graph [][]int, v int, path []int, visited []bool, pos int) bool {
+	if graph[path[pos-1]][v] == 0 {
+		return false
+	}
+	for i := 0; i < pos; i++ {
+		if path[i] == v {
+			return false
+		}
+	}
+	return true
+}
+
+func main() {
+	graph := [][]int{
+		{0, 1, 0, 1, 0},
+		{1, 0, 1, 1, 1},
+		{0, 1, 0, 0, 1},
+		{1, 1, 0, 0, 1},
+		{0, 1, 1, 1, 0},
+	}
+	path := hamiltonianCycle(graph)
+	if len(path) == 0 {
+		fmt.Println("No Hamiltonian Cycle found")
+	} else {
+		fmt.Println("Hamiltonian Cycle found:", path)
+	}
+}
+```
+
+In this implementation, the hamiltonianCycle function takes a graph represented as a 2D array of integers, where graph[i][j] is 1 if there is an edge between vertices i and j, and 0 otherwise. It returns an array of integers representing the vertices in the Hamiltonian Cycle, or an empty array if no Hamiltonian Cycle is found.
+
+The hamiltonianCycleUtil function is the recursive backtracking function that explores all possible paths through the graph. It takes the graph, the current path, the visited vertices, and the current position in the path as input, and returns true if a Hamiltonian Cycle is found and false otherwise.
+
+The isSafe function checks whether it is safe to add a vertex to the current path. It takes the graph, the vertex to be added, the current path, the visited vertices, and the current position in the path as input, and returns true if it is safe to add the vertex and false otherwise.
+
+Finally, the main function initializes a sample graph and calls the hamiltonianCycle function to find a Hamiltonian Cycle in the graph. It prints the result to the console.
+
+---
+
+
