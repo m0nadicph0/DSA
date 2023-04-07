@@ -5,19 +5,13 @@ The N Queen problem is a classic problem in computer science that involves placi
 
 Here are the steps to solve the N Queen problem using backtracking:
 
-Define a function that takes as input the current state of the board, the current column, and the number of queens to place. The current state of the board should be represented as an array of integers, where each integer represents the row of the queen in the corresponding column. If a queen has not yet been placed in a column, the corresponding integer should be set to -1.
-
-If the current column is equal to the number of queens, the board is complete and we have found a solution. Return true to indicate success.
-
-Loop over all possible rows in the current column. For each row, check if placing a queen in that row would result in a valid board state. To do this, check if the current row is already occupied by another queen, if any queen in a previous column threatens the current position, and if any queen in a diagonal threatens the current position.
-
-If the current row is valid, place a queen in that row and recurse on the next column.
-
-If the recursion on the next column returns true, a solution has been found, so return true to indicate success.
-
-If the recursion on the next column returns false, backtrack by removing the queen from the current position and trying the next row.
-
-If none of the possible rows in the current column resulted in a valid board state, return false to indicate failure.
+1. Define a function that takes as input the current state of the board, the current column, and the number of queens to place. The current state of the board should be represented as an array of integers, where each integer represents the row of the queen in the corresponding column. If a queen has not yet been placed in a column, the corresponding integer should be set to -1.
+2. If the current column is equal to the number of queens, the board is complete and we have found a solution. Return true to indicate success.
+3. Loop over all possible rows in the current column. For each row, check if placing a queen in that row would result in a valid board state. To do this, check if the current row is already occupied by another queen, if any queen in a previous column threatens the current position, and if any queen in a diagonal threatens the current position.
+4. If the current row is valid, place a queen in that row and recurse on the next column.
+5. If the recursion on the next column returns true, a solution has been found, so return true to indicate success.
+6. If the recursion on the next column returns false, backtrack by removing the queen from the current position and trying the next row.
+7. If none of the possible rows in the current column resulted in a valid board state, return false to indicate failure.
 
 ```go
 func NQueens(n int) [][]int {
@@ -431,4 +425,4 @@ In this example, we define a 2D array maze that represents a 4x4 maze. We then c
 If a path was found, we print out the path in reverse order (since we built it up from the goal position backwards), with each position represented as a tuple of row and column coordinates. If no path was found, we print a message indicating that.
 
 ---
-## 
+
