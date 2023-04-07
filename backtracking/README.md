@@ -336,5 +336,69 @@ last added character from the current word to backtrack to the previous cell.
 Finally, the findWords function returns the list of found words.
 
 
+### Palindrome partitioning
+
+> Problem: Given a string s, partition s such that every substring of the partition is a palindrome. Return all possible palindrome partitioning of s.
+
+Example:
+
+```
+Input: s = "aab"
+Output: [["a","a","b"],["aa","b"]]
+
+Explanation:
+The palindrome partitions of "aab" are:
+- "a", "a", "b" => all substrings are palindrome
+- "aa", "b" => all substrings are palindrome
+```
+
+Solution: This problem can be solved using backtracking. The idea is to explore all possible ways to partition the string into palindromic substrings. For each possible partition, we check if the current substring is a palindrome using a separate helper function. If it is a palindrome, we add it to the current partition and call the backtrack function recursively with the remaining part of the string and the updated partition. If it is not a palindrome, we backtrack to the previous partition and explore other possibilities.
+
+Here are the steps to solve the problem in English:
+
+1. Define a recursive function called backtrack that takes the input string, the current partition, the current index, and the result slice as arguments.
+1. If the current index is equal to the length of the input string, add the current partition to the result slice and return.
+1. For each index from the current index to the end of the string, check if the substring from the current index to the current index plus the current length is a palindrome. If it is a palindrome, add the substring to the current partition and call the backtrack function recursively with the remaining part of the string (from the next index) and the updated partition.
+1. After exploring all possible paths from the current index, remove the last added substring from the current partition to backtrack to the previous index.
+
+```go
+func partition(s string) [][]string {
+    res := [][]string{}
+    backtrack(s, []string{}, 0, &res)
+    return res
+}
+
+func backtrack(s string, partition []string, index int, res *[][]string) {
+    if index == len(s) {
+        temp := make([]string, len(partition))
+        copy(temp, partition)
+        *res = append(*res, temp)
+        return
+    }
+    for i := index; i < len(s); i++ {
+        if isPalindrome(s[index : i+1]) {
+            partition = append(partition, s[index:i+1])
+            backtrack(s, partition, i+1, res)
+            partition = partition[:len(partition)-1]
+        }
+    }
+}
+
+func isPalindrome(s string) bool {
+    left, right := 0, len(s)-1
+    for left < right {
+        if s[left] != s[right] {
+            return false
+        }
+        left++
+        right--
+    }
+    return true
+}
+```
+
+In this code, we define the `partition` function that initializes an empty result slice and calls the backtrack function with the input string, an empty partition slice, the starting index 0, and a pointer to the result slice.
+
+The backtrack function checks if the current index is equal to the length of the input string, and if so, adds the current partition to the result slice and returns. Otherwise, it iterates over the string from the current index to the end, checking if each substring is a palindrome using the isPalindrome helper function. If a substring is a palindrome, it adds it to the current partition and calls the backtrack function recursively with the remaining part of the string (from the next index) and the updated partition. After exploring all possible paths from the current index, it removes the last added substring from the current partition to backtrack to the previous index.
 
 
