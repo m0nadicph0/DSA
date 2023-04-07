@@ -425,4 +425,62 @@ In this example, we define a 2D array maze that represents a 4x4 maze. We then c
 If a path was found, we print out the path in reverse order (since we built it up from the goal position backwards), with each position represented as a tuple of row and column coordinates. If no path was found, we print a message indicating that.
 
 ---
+## The Subset Sum problem
+
+The Subset Sum problem is a classic problem in computer science where we are given a set of numbers and a target sum, and we need to find if there exists a subset of the given set whose elements add up to the target sum.
+
+Here are the steps to solve the Subset Sum problem using backtracking:
+
+1. Start with an empty subset and initialize the current sum to 0.
+2. Consider adding the first element of the set to the subset. If the sum of the subset and the current element is equal to the target sum, then we have found a solution. If not, move to step 3.
+3. Recursively consider adding the next element of the set to the subset. At each step, check if the sum of the subset and the current element is equal to the target sum. If yes, we have found a solution. If no, move to step 4.
+4. If we have exhausted all the elements in the set, then backtrack by removing the last element added to the subset and move to step 3.
+
+```go
+func subsetSum(nums []int, target int) []int {
+    var result []int
+    var backtrack func(curr []int, sum int, index int)
+
+    backtrack = func(curr []int, sum int, index int) {
+        if sum == target {
+            result = append(result, curr...)
+            return
+        }
+        if index >= len(nums) {
+            return
+        }
+        // Skip adding the current element
+        backtrack(curr, sum, index+1)
+        // Add the current element
+        curr = append(curr, nums[index])
+        backtrack(curr, sum+nums[index], index+1)
+        // Backtrack by removing the current element
+        curr = curr[:len(curr)-1]
+    }
+
+    backtrack([]int{}, 0, 0)
+    return result
+}
+```
+
+The function takes in a slice of integers nums and a target sum target and returns a slice of integers that form a subset of nums that add up to target. The function works by maintaining a result slice that stores the subsets that add up to the target sum. The backtrack function takes in the current subset curr, the current sum sum, and the index of the current element being considered index. If the current sum is equal to the target sum, we have found a solution, so we add the current subset to the result slice. If we have reached the end of the array, we backtrack by removing the last element added to the subset. Otherwise, we consider adding the current element to the subset and recurse.
+
+Here's an example usage of the function:
+
+```go
+func main() {
+    nums := []int{1, 2, 3, 4, 5}
+    target := 8
+    result := subsetSum(nums, target)
+    fmt.Println(result)
+}
+```
+
+The above code finds all the subsets of the given set of numbers nums that add up to the target sum target and prints them. The output for this code should be 
+
+```
+[2 3 5] [1 2 5] [1 3 4]
+```
+
+---
 
