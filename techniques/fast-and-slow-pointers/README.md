@@ -197,5 +197,35 @@ We start by setting fast to head and iterating over the list k times. Then, we m
 the same time until fast reaches the end of the list. At this point, slow will be pointing at the kth 
 to last element.
 
+### Remove all odd elements from a linked list
+
+```go
+type ListNode struct {
+    Val  int
+    Next *ListNode
+}
+
+func removeOdd(head *ListNode) *ListNode {
+    dummy := &ListNode{Val: 0, Next: head}
+    slow, fast := dummy, head
+    for fast != nil {
+        if fast.Val%2 == 1 {
+            slow.Next = fast.Next
+            fast = slow.Next
+        } else {
+            slow = fast
+            fast = fast.Next
+        }
+    }
+    return dummy.Next
+}
+
+```
+
+In this example, we use fast and slow pointers to traverse the linked list. We start by creating a dummy node to serve as the head of the list in case we need to remove the actual head node. We set the slow and fast pointers to the dummy node and the head node, respectively.
+
+We then iterate over the list using the fast pointer. For each node, we check if its value is odd using the modulo operator. If it is odd, we remove the node from the list by setting the Next pointer of the slow node to the Next pointer of the fast node. We then update the fast pointer to point to the next node in the list. If the node's value is even, we simply update the slow pointer to point to the current fast node and update the fast pointer to point to the next node in the list.
+
+Once we have processed all the nodes in the list, we return the Next pointer of the dummy node, which will be the head of the new list with all odd nodes removed.
 
 
