@@ -1,6 +1,9 @@
 # Queue
 
-A queue is a linear data structure in which elements are added to one end, known as the "rear" or "tail" of the queue, and removed from the other end, known as the "front" or "head" of the queue. The basic operations supported by a queue data structure are:
+A queue is a linear data structure in which elements are added to one end, known as the "rear" or "tail" of the queue, 
+and removed from the other end, known as the "front" or "head" of the queue. 
+
+The basic operations supported by a queue data structure are:
 
 1. `Enqueue`: Adding an element to the rear of the queue. This operation is also known as "push".
 1. `Dequeue`: Removing an element from the front of the queue. This operation is also known as "pop".
