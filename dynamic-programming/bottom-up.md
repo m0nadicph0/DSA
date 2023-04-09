@@ -1,5 +1,39 @@
 # Bottom-Up DP Examples
 
+  * [1.  Fibonacci series](#1--fibonacci-series)
+  * [2.  Longest common subsequence](#2--longest-common-subsequence)
+  * [3.  Knapsack problem](#3--knapsack-problem)
+  * [4.  Coin change problem](#4--coin-change-problem)
+  * [5.  Maximum subarray problem](#5--maximum-subarray-problem)
+  * [6.  Longest increasing subsequence](#6--longest-increasing-subsequence)
+  * [7.  Matrix chain multiplication](#7--matrix-chain-multiplication)
+  * [8.  Edit distance problem](#8--edit-distance-problem)
+  * [9.  Longest palindromic subsequence](#9--longest-palindromic-subsequence)
+  * [10. Rod cutting problem](#10-rod-cutting-problem)
+  * [11. Subset sum problem](#11-subset-sum-problem)
+  * [12. Minimum edit distance](#12-minimum-edit-distance)
+  * [13. Optimal binary search tree](#13-optimal-binary-search-tree)
+  * [14. Longest bitonic subsequence](#14-longest-bitonic-subsequence)
+  * [15. Counting problems (such as counting the number of ways to make change)](#15-counting-problems--such-as-counting-the-number-of-ways-to-make-change-)
+  * [16. Longest common substring](#16-longest-common-substring)
+  * [17. Maximum sum increasing subsequence](#17-maximum-sum-increasing-subsequence)
+  * [18. Painting fence problem](#18-painting-fence-problem)
+  * [19. Maximum sum subsequence without adjacent elements](#19-maximum-sum-subsequence-without-adjacent-elements)
+  * [20. 0/1 Knapsack problem](#20-0-1-knapsack-problem)
+  * [21. Egg dropping problem](#21-egg-dropping-problem)
+  * [22. Partition problem](#22-partition-problem)
+  * [23. Longest zigzag subsequence](#23-longest-zigzag-subsequence)
+  * [24. String matching problems](#24-string-matching-problems)
+  * [25. Maximum sum subarray with at most k elements](#25-maximum-sum-subarray-with-at-most-k-elements)
+  * [26. Longest alternating subsequence](#26-longest-alternating-subsequence)
+  * [27. Tower of Hanoi problem](#27-tower-of-hanoi-problem)
+  * [28. Longest common prefix](#28-longest-common-prefix)
+  * [29. Shortest common supersequence](#29-shortest-common-supersequence)
+  * [30. Maximum size subset with given sum.](#30-maximum-size-subset-with-given-sum)
+
+
+
+
 ## 1.  Fibonacci series
 The Fibonacci series is a famous mathematical sequence where each number is the sum of the two preceding ones, starting from 0 and 1. The first few numbers in the sequence are: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, ...
 
