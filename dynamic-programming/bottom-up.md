@@ -19,7 +19,7 @@
   * [17. Maximum sum increasing subsequence](#17-maximum-sum-increasing-subsequence)
   * [18. Painting fence problem](#18-painting-fence-problem)
   * [19. Maximum sum subsequence without adjacent elements](#19-maximum-sum-subsequence-without-adjacent-elements)
-  * [20. 0/1 Knapsack problem](#20-0-1-knapsack-problem)
+  * [20. 0/1 Knapsack problem](#20-01-knapsack-problem)
   * [21. Egg dropping problem](#21-egg-dropping-problem)
   * [22. Partition problem](#22-partition-problem)
   * [23. Longest zigzag subsequence](#23-longest-zigzag-subsequence)
