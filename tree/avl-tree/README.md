@@ -4,6 +4,16 @@ An AVL tree is a self-balancing binary search tree that was invented by Adelson-
 
 The AVL tree maintains a height-balanced binary search tree, meaning that the height of the left and right subtrees of any node differs by at most 1. This ensures that the search, insertion, and deletion operations take logarithmic time in the worst case, which is O(log n), where n is the number of nodes in the tree.
 
+## Properties
+
+The properties of an AVL (Adelson-Velsky and Landis) tree are:
+1. **Binary Search Tree Property**: The AVL tree is a binary search tree (BST) where every node's value is greater than or equal to all nodes in its left subtree and less than or equal to all nodes in its right subtree.
+1. **Height-Balance Property**: The height of the left and right subtrees of any node differs by at most one. In other words, the AVL tree is a binary search tree where the difference in height between the left and right subtrees of any node, also known as the balance factor, is always -1, 0, or 1.
+1. **Self-Balancing Property**: Whenever the AVL tree violates the height-balance property during an insertion or deletion operation, it automatically performs a series of rotations to rebalance itself and maintain the height-balance property.
+1. **Height Property**: The height of an AVL tree with n nodes is O(log n). This means that the height of the AVL tree grows logarithmically with the number of nodes it contains, ensuring that insertion, deletion, and search operations can be performed efficiently.
+
+The combination of these properties makes AVL trees a reliable and efficient data structure for storing and retrieving data. The height-balance property ensures that the tree remains balanced, preventing performance degradation due to skewed trees, and the self-balancing property guarantees that the AVL tree remains balanced during insertions and deletions. The height property ensures that search and other operations can be performed efficiently, making the AVL tree suitable for a variety of applications.
+
 ## Basic operations
 The basic operations that can be performed on an AVL tree include:
 
@@ -24,30 +34,37 @@ In addition to the basic operations of search, insertion, deletion, and rotation
 
 ## Examples
 
-```text
-        8
-      /   \
-     4     12
-    / \   /  \
-   2   6 10  14
-          /   \
-         11   15
+```mermaid
+graph TD
+    A((10))
+    B((5))
+    C((15))
+    D((3))
+    E((7))
+    F((12))
+    G((17))
+    A-->B
+    A-->C
+    B-->D
+    B-->E
+    C-->F
+    C-->G
 ```
-In this example, the AVL tree has six levels and a total of 11 nodes. The root node has a value of 8 and two children nodes with values of 4 and 12. The left subtree of the root node has two leaf nodes with values of 2 and 6, while the right subtree has two leaf nodes with values of 10 and 14. The node with a value of 12 has two children nodes with values of 11 and 15. This AVL tree is balanced, meaning that the heights of its left and right subtrees differ by at most 1.
+In this example, the root node is A with a value of 10. The left subtree contains nodes B and D, and the right subtree contains nodes C, F, and G. Each node has a value in the tree, and the binary search tree property holds, meaning that for each node, all nodes in the left subtree have values less than the node's value, and all nodes in the right subtree have values greater than the node's value.
 
-```text
-             22
-           /    \
-         14     30
-        / \     / \
-       8  16  25  35
-      / \   \      \
-     4   12  18     40
-          /
-         10
+The AVL tree is a self-balancing binary search tree where the height of the left and right subtrees of any node differ by at most one. In other words, an AVL tree is a binary search tree where the difference in height between the left and right subtrees of any node, also known as the balance factor, is always -1, 0, or 1.
 
-```
-In this example, the AVL tree has five levels and a total of 11 nodes. The root node has a value of 22 and two children nodes with values of 14 and 30. The left subtree of the root node has three levels and contains six nodes. The right subtree has two levels and contains five nodes. The node with a value of 30 has two children nodes with values of 25 and 35. The node with a value of 14 has two children nodes with values of 8 and 16. The node with a value of 8 has two children nodes with values of 4 and 12. The node with a value of 16 has one child node with a value of 18. The node with a value of 12 has one child node with a value of 10. This AVL tree is balanced, meaning that the heights of its left and right subtrees differ by at most 1.
+In the example above, the heights of the left and right subtrees of each node are as follows:
+
+- Node A: Left subtree height = 2, Right subtree height = 1, Balance factor = 1
+- Node B: Left subtree height = 1, Right subtree height = 1, Balance factor = 0
+- Node C: Left subtree height = 1, Right subtree height = 1, Balance factor = 0
+- Node D: Left subtree height = 0, Right subtree height = 0, Balance factor = 0
+- Node E: Left subtree height = 0, Right subtree height = 0, Balance factor = 0
+- Node F: Left subtree height = 0, Right subtree height = 0, Balance factor = 0
+- Node G: Left subtree height = 0, Right subtree height = 0, Balance factor = 0
+
+Since the balance factors of all nodes in the tree are either 0 or 1, this tree is an AVL tree. If any node's balance factor were outside of this range, the tree would need to be rebalanced to maintain the AVL property.
 
 ## Uses and applications
 
