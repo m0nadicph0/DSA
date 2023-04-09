@@ -130,3 +130,72 @@ AVL trees and Red-Black trees are both balanced binary search trees, but there a
 1. **Applications**: AVL trees are typically used in applications where a high degree of balance is required, such as in databases or real-time systems. Red-Black trees are more commonly used in general-purpose applications, such as in C++'s STL library.
 
 These are some of the key differences between AVL trees and Red-Black trees. Ultimately, the choice between the two will depend on the specific requirements of the application in question.
+
+## Easy problems
+
+
+1. Insert a node into a Red-Black Tree.
+1. Delete a node from a Red-Black Tree.
+1. Check if a given value is present in a Red-Black Tree.
+1. Find the minimum value in a Red-Black Tree.
+1. Find the maximum value in a Red-Black Tree.
+1. Find the successor of a given value in a Red-Black Tree.
+1. Find the predecessor of a given value in a Red-Black Tree.
+1. Check if a Red-Black Tree is empty.
+1. Count the number of nodes in a Red-Black Tree.
+1. Find the height of a Red-Black Tree.
+1. Perform an inorder traversal of a Red-Black Tree.
+1. Perform a preorder traversal of a Red-Black Tree.
+1. Perform a postorder traversal of a Red-Black Tree.
+1. Count the number of black nodes in a Red-Black Tree.
+1. Count the number of red nodes in a Red-Black Tree.
+1. Check if a given Red-Black Tree is balanced.
+1. Check if a given Red-Black Tree is a valid Binary Search Tree.
+1. Find the kth smallest element in a Red-Black Tree.
+1. Find the kth largest element in a Red-Black Tree.
+1. Check if a given Red-Black Tree is a valid Red-Black Tree.
+1. Count the number of leaf nodes in a Red-Black Tree.
+1. Check if a given Red-Black Tree is a full binary tree.
+1. Check if a given Red-Black Tree is a complete binary tree.
+1. Mirror a given Red-Black Tree.
+1. Convert a given Red-Black Tree into a binary search tree.
+1. Print all the paths from the root to the leaf nodes of a Red-Black Tree.
+1. Find the depth of a given node in a Red-Black Tree.
+1. Find the width of a Red-Black Tree.
+1. Check if two Red-Black Trees are structurally identical.
+1. Find the diameter of a Red-Black Tree.
+
+## Intermediate problems
+
+
+1. Verify if a Red-Black Tree has a balanced number of black nodes.
+1. Find the maximum sum of elements in a path from the root to a leaf node in a Red-Black Tree.
+1. Find the maximum sum of elements in any path in a Red-Black Tree.
+1. Find the lowest common ancestor of two nodes in a Red-Black Tree.
+1. Check if a Red-Black Tree is a valid AVL Tree.
+1. Count the number of paths in a Red-Black Tree with a given sum.
+1. Count the number of paths in a Red-Black Tree that start and end at the same node.
+1. Check if a Red-Black Tree is height-balanced.
+1. Implement an iterator for a Red-Black Tree that returns nodes in ascending order.
+1. Implement an iterator for a Red-Black Tree that returns nodes in descending order.
+1. Check if a Red-Black Tree is symmetric around its center.
+1. Rotate a Red-Black Tree to the left.
+1. Rotate a Red-Black Tree to the right.
+1. Convert a sorted array into a balanced Red-Black Tree.
+1. Convert a Red-Black Tree into an AVL Tree.
+1. Find the shortest path between two nodes in a Red-Black Tree.
+1. Find the longest path between two nodes in a Red-Black Tree.
+1. Find the height of the largest perfect subtree in a Red-Black Tree.
+1. Count the number of subtrees in a Red-Black Tree with a given number of nodes.
+1. Check if a Red-Black Tree is a complete k-ary tree.
+1. Convert a Red-Black Tree into a 2-3 Tree.
+1. Find the number of nodes in the largest complete subtree of a Red-Black Tree.
+1. Implement a Red-Black Tree using a treap.
+1. Count the number of nodes in the largest perfect binary subtree of a Red-Black Tree.
+1. Find the diameter of a Red-Black Tree using dynamic programming.
+1. Find the height of a Red-Black Tree using dynamic programming.
+1. Count the number of paths in a Red-Black Tree that have a given length.
+1. Check if a given binary tree can be converted into a Red-Black Tree.
+1. Find the closest value in a Red-Black Tree to a given value.
+1. Remove all nodes from a Red-Black Tree that lie in a given range.
+
