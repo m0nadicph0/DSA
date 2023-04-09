@@ -26,6 +26,26 @@ The basic operations that can be performed on a BST are:
 1. **Morris Inorder Traversal**: Morris Inorder Traversal is a space-optimized algorithm to perform in-order traversal of a Binary Search Tree in constant space without using a stack or recursion.
 1. **Check if Two Binary Trees are Identical**: Two Binary Trees can be checked if they are identical or not by recursively comparing the corresponding nodes in the trees.
 
+## Examples 
+
+```mermaid
+graph TD
+    A((50))
+    B((30))
+    C((70))
+    D((20))
+    E((40))
+    F((60))
+    G((80))
+    A-->B
+    A-->C
+    B-->D
+    B-->E
+    C-->F
+    C-->G
+
+```
+
 ## Uses
 
 
