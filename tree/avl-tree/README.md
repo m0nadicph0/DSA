@@ -22,6 +22,33 @@ In addition to the basic operations of search, insertion, deletion, and rotation
 1. **Range search**: The range search operation finds all the nodes in the AVL tree that have keys in a given range. This operation is useful for implementing algorithms that require searching for elements within a specific range, such as interval search or range query.
 1. **Join and split**: The join and split operations are used to combine or split two AVL trees, respectively. The join operation takes two disjoint AVL trees with keys less than or greater than a given value and creates a new AVL tree that contains all the nodes from both trees. The split operation takes an AVL tree and a key and splits the tree into two AVL trees, one containing all the nodes with keys less than the given key and the other containing all the nodes with keys greater than or equal to the given key. These operations are useful for implementing data structures that require dynamic updates, such as persistent data structures.
 
+## Examples
+
+```text
+        8
+      /   \
+     4     12
+    / \   /  \
+   2   6 10  14
+          /   \
+         11   15
+```
+In this example, the AVL tree has six levels and a total of 11 nodes. The root node has a value of 8 and two children nodes with values of 4 and 12. The left subtree of the root node has two leaf nodes with values of 2 and 6, while the right subtree has two leaf nodes with values of 10 and 14. The node with a value of 12 has two children nodes with values of 11 and 15. This AVL tree is balanced, meaning that the heights of its left and right subtrees differ by at most 1.
+
+```text
+             22
+           /    \
+         14     30
+        / \     / \
+       8  16  25  35
+      / \   \      \
+     4   12  18     40
+          /
+         10
+
+```
+In this example, the AVL tree has five levels and a total of 11 nodes. The root node has a value of 22 and two children nodes with values of 14 and 30. The left subtree of the root node has three levels and contains six nodes. The right subtree has two levels and contains five nodes. The node with a value of 30 has two children nodes with values of 25 and 35. The node with a value of 14 has two children nodes with values of 8 and 16. The node with a value of 8 has two children nodes with values of 4 and 12. The node with a value of 16 has one child node with a value of 18. The node with a value of 12 has one child node with a value of 10. This AVL tree is balanced, meaning that the heights of its left and right subtrees differ by at most 1.
+
 ## Uses and applications
 
 AVL trees are commonly used in a variety of applications where efficient searching, insertion, and deletion of data are required. Some of the most common uses and applications of AVL trees are:
