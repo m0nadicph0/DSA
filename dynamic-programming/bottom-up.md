@@ -14,7 +14,7 @@
   * [12. Minimum edit distance](#12-minimum-edit-distance)
   * [13. Optimal binary search tree](#13-optimal-binary-search-tree)
   * [14. Longest bitonic subsequence](#14-longest-bitonic-subsequence)
-  * [15. Counting problems (such as counting the number of ways to make change)](#15-counting-problems--such-as-counting-the-number-of-ways-to-make-change-)
+  * [15. Counting problems (such as counting the number of ways to make change)](#15-counting-problems-such-as-counting-the-number-of-ways-to-make-change)
   * [16. Longest common substring](#16-longest-common-substring)
   * [17. Maximum sum increasing subsequence](#17-maximum-sum-increasing-subsequence)
   * [18. Painting fence problem](#18-painting-fence-problem)
