@@ -47,3 +47,71 @@ func (bt *BinaryTree) TraversePostOrder() []int {}
 func (bt *BinaryTree) Search(val int) *TreeNode {}
 func (bt *BinaryTree) Height() int {}
 ```
+
+## Easy problems
+
+
+1. Implement a function to calculate the size of a binary tree.
+1. Implement a function to calculate the height of a binary tree.
+1. Implement a function to check if a binary tree is balanced.
+1. Implement a function to find the maximum value in a binary tree.
+1. Implement a function to find the minimum value in a binary tree.
+1. Implement a function to check if a binary tree is a binary search tree.
+1. Implement a function to find the kth smallest value in a binary search tree.
+1. Implement a function to find the path from the root to a given node in a binary tree.
+1. Implement a function to check if two binary trees are equal.
+1. Implement a function to check if a binary tree is a mirror of itself.
+1. Implement a function to invert a binary tree.
+1. Implement a function to convert a binary tree to its mirror.
+1. Implement a function to check if a binary tree is symmetric.
+1. Implement a function to check if a binary tree is a subtree of another binary tree.
+1. Implement a function to find the lowest common ancestor of two nodes in a binary tree.
+1. Implement a function to check if a binary tree is a complete binary tree.
+1. Implement a function to calculate the diameter of a binary tree.
+1. Implement a function to find the maximum sum of a path from the root to a leaf in a binary tree.
+1. Implement a function to check if a binary tree is height-balanced.
+1. Implement a function to check if a binary tree is full.
+1. Implement a function to check if a binary tree is perfect.
+1. Implement a function to print the level order traversal of a binary tree.
+1. Implement a function to print the spiral order traversal of a binary tree.
+1. Implement a function to print the diagonal order traversal of a binary tree.
+1. Implement a function to count the number of leaf nodes in a binary tree.
+1. Implement a function to count the number of nodes at a given level in a binary tree.
+1. Implement a function to calculate the sum of all the nodes in a binary tree.
+1. Implement a function to delete a node from a binary search tree.
+1. Implement a function to convert a binary search tree to a sorted array.
+1. Implement a function to find the inorder successor of a node in a binary search tree.
+
+## Intermediate problems
+
+
+1. Implement a function to check if a binary tree is a balanced binary search tree.
+1. Implement a function to find the distance between two nodes in a binary tree.
+1. Implement a function to serialize and deserialize a binary tree.
+1. Implement a function to find the vertical sum of a binary tree.
+1. Implement a function to print the boundary of a binary tree.
+1. Implement a function to find the largest BST subtree in a binary tree.
+1. Implement a function to find the maximum width of a binary tree.
+1. Implement a function to check if a binary tree is a sum tree.
+1. Implement a function to check if a binary tree is a subtree of another binary search tree.
+1. Implement a function to convert a binary tree to a doubly linked list.
+1. Implement a function to check if a binary tree is isomorphic to another binary tree.
+1. Implement a function to check if a binary tree is a sum tree or not.
+1. Implement a function to check if a binary tree is a heap.
+1. Implement a function to find the lowest common ancestor of multiple nodes in a binary tree.
+1. Implement a function to find the maximum sum of a path between any two nodes in a binary tree.
+1. Implement a function to find the maximum difference between a node and its ancestor in a binary tree.
+1. Implement a function to find the maximum sum of nodes at a given level in a binary tree.
+1. Implement a function to find the diameter of a binary tree using dynamic programming.
+1. Implement a function to check if a binary tree is a subtree of another binary tree without using extra space.
+1. Implement a function to find the kth largest value in a binary search tree.
+1. Implement a function to find the closest leaf node to a given node in a binary tree.
+1. Implement a function to check if a binary tree is a foldable tree.
+1. Implement a function to find the largest complete subtree in a binary tree.
+1. Implement a function to find the lowest common ancestor of a binary tree in O(1) space.
+1. Implement a function to check if a binary tree is a sum tree or not in O(n) time.
+1. Implement a function to find the minimum depth of a binary tree using breadth-first search.
+1. Implement a function to check if a binary tree is a subtree of another binary tree using Morris traversal.
+1. Implement a function to convert a binary search tree to a balanced binary search tree.
+1. Implement a function to find the maximum product of nodes in a binary tree.
+1. Implement a function to check if a binary tree is a subtree of another binary tree using string matching.
