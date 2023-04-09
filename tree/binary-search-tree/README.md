@@ -45,6 +45,37 @@ graph TD
     C-->G
 
 ```
+another example
+
+```mermaid
+graph TD
+    A((50))
+    B((30))
+    C((70))
+    D((20))
+    E((40))
+    F((60))
+    G((80))
+    H((10))
+    I((25))
+    J((35))
+    K((55))
+    L((65))
+    M((75))
+    A-->B
+    A-->C
+    B-->D
+    B-->E
+    C-->F
+    C-->G
+    D-->H
+    D-->I
+    E-->J
+    F-->K
+    F-->L
+    G-->M
+
+```
 
 ## Uses
 
