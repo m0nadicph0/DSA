@@ -16,6 +16,14 @@ All of these operations can be performed in `O(log n)` time, making red-black tr
 
 ## Complex operations
 
+Red-Black Trees support a variety of operations, including some more complex ones. Here are some of the more complex operations that can be performed on a Red-Black Tree:
+
+1. **Augmented Tree Queries**: In addition to storing key-value pairs in the nodes, Red-Black Trees can also store additional information (such as counts, sums, or other aggregate values) about the subtree rooted at each node. This allows for efficient queries on the tree, such as finding the sum of all values between two given keys.
+1. **Range Queries**: Red-Black Trees can efficiently find all nodes whose keys lie within a given range. This can be useful for a variety of applications, such as finding all data items within a certain time interval.
+1. **Tree Traversal**: Red-Black Trees can be traversed in a variety of ways, such as inorder, preorder, and postorder. These traversals can be used to perform various operations on the tree, such as printing out its contents or building a balanced binary search tree from an unbalanced one.
+1. **Tree Rebalancing**: Occasionally, Red-Black Trees may become unbalanced due to insertions or deletions. Rebalancing the tree involves a series of rotations and recolorings that restore the Red-Black properties of the tree. This can be a complex operation, but it is essential for maintaining the performance guarantees of the tree.
+1. **Iterators**: Red-Black Trees can be implemented with iterators that allow efficient traversal of the tree in sorted order. This can be useful for iterating through large datasets or for building other data structures that rely on sorted data.
+
 ## Examples
 
 ```text
