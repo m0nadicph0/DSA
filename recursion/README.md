@@ -174,7 +174,7 @@ Since f(n) = O(1) is equal to n^(log_b a), which is a constant, we can apply cas
 In other words, the running time of the recursive permutation generation algorithm is O(n log n), which is not as efficient as other non-recursive algorithms for generating permutations, but still manageable for small values of n.
 
 ## Easy problems
-1.  Write a recursive function to find the factorial of a number.
+1.  Write a recursive function to find the factorial of a number. [[code](https://github.com/m0nadicph0/DSA/blob/main/recursion/factorial.go#L3)]
 2.  Write a recursive function to find the nth Fibonacci number.
 3.  Write a recursive function to find the greatest common divisor of two numbers.
 4.  Write a recursive function to find the least common multiple of two numbers.
