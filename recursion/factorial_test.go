@@ -38,7 +38,7 @@ func Test_factorial(t *testing.T) {
 		t.Run(tc.name, func(t *testing.T) {
 			actual := factorial(tc.input)
 			if actual != tc.expected {
-				t.Errorf("factorial() = %v, want %v", actual, tc.expected)
+				t.Errorf("factorial() = %v, expected %v", actual, tc.expected)
 			}
 		})
 	}

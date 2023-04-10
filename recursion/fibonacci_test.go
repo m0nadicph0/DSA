@@ -64,7 +64,7 @@ func Test_fibonacci(t *testing.T) {
 		t.Run(tc.name, func(t *testing.T) {
 			actual := fibonacci(tc.input)
 			if actual != tc.expected {
-				t.Errorf("fibonacci() = %v, want %v", actual, tc.expected)
+				t.Errorf("fibonacci() = %v, expected %v", actual, tc.expected)
 			}
 		})
 	}
