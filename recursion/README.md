@@ -175,16 +175,16 @@ In other words, the running time of the recursive permutation generation algorit
 
 ## Easy problems
 1.  Write a recursive function to find the factorial of a number. [[code](https://github.com/m0nadicph0/DSA/blob/main/recursion/factorial.go#L3)]
-2.  Write a recursive function to find the nth Fibonacci number.
-3.  Write a recursive function to find the greatest common divisor of two numbers.
-4.  Write a recursive function to find the least common multiple of two numbers.
-5.  Write a recursive function to calculate the sum of an array of numbers.
-6.  Write a recursive function to calculate the product of an array of numbers.
-7.  Write a recursive function to reverse a string.
-8.  Write a recursive function to check if a string is a palindrome.
-9.  Write a recursive function to calculate the power of a number.
-10. Write a recursive function to find the sum of digits of a number.
-11. Write a recursive function to find the number of digits in a number.
+2.  Write a recursive function to find the nth Fibonacci number.  [[code](https://github.com/m0nadicph0/DSA/blob/main/recursion/fibonacci.go#L3)]
+3.  Write a recursive function to find the greatest common divisor of two numbers. [[code](https://github.com/m0nadicph0/DSA/blob/main/recursion/gcd.go#L7)]
+4.  Write a recursive function to find the least common multiple of two numbers. [[code](https://github.com/m0nadicph0/DSA/blob/main/recursion/gcd.go#L21)]
+5.  Write a recursive function to calculate the sum of an array of numbers. [[code](https://github.com/m0nadicph0/DSA/blob/main/recursion/collections.go#L4)]
+6.  Write a recursive function to calculate the product of an array of numbers. [[code](https://github.com/m0nadicph0/DSA/blob/main/recursion/collections.go#L12)]
+7.  Write a recursive function to reverse a string. [[code](https://github.com/m0nadicph0/DSA/blob/main/recursion/strings.go#L4)]
+8.  Write a recursive function to check if a string is a palindrome. [[code](https://github.com/m0nadicph0/DSA/blob/main/recursion/strings.go#L9)]
+9.  Write a recursive function to calculate the power of a number. [[code](https://github.com/m0nadicph0/DSA/blob/main/recursion/numerical.go#L4)]
+10. Write a recursive function to find the sum of digits of a number. [[code](https://github.com/m0nadicph0/DSA/blob/main/recursion/numerical.go#L9)]
+11. Write a recursive function to find the number of digits in a number. [[code](https://github.com/m0nadicph0/DSA/blob/main/recursion/numerical.go#L14)]
 12. Write a recursive function to find the minimum element in an array.
 13. Write a recursive function to find the maximum element in an array.
 14. Write a recursive function to check if an array is sorted in ascending order.
