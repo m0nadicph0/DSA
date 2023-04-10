@@ -1,19 +1,16 @@
 package recursion
 
-func sum(nums []int) int {
-	if len(nums) == 0 {
-		return 0
-	}
-	return nums[0] + sum(nums[1:])
+// power of a number.
+func power(n int) int {
+	return 0
 }
 
-func product(nums []int) int {
-	switch len(nums) {
-	case 0:
-		return 0
-	case 1:
-		return nums[0]
-	default:
-		return nums[0] * product(nums[1:])
-	}
+// sum of digits of a number.
+func digitSum(n int) int {
+	return 0
+}
+
+// number of digits in a number.
+func numDigits(n int) int {
+	return 0
 }
