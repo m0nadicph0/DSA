@@ -10,9 +10,7 @@ func digitSum(n int) int {
 	if n < 10 {
 		return n
 	}
-	lastDigit := n % 10
-	remaining := n / 10
-	return lastDigit + digitSum(remaining)
+	return n%10 + digitSum(n/10)
 }
 
 // number of digits in a number.
