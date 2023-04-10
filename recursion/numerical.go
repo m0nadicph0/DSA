@@ -15,5 +15,8 @@ func digitSum(n int) int {
 
 // number of digits in a number.
 func numDigits(n int) int {
-	return 0
+	if n < 10 {
+		return 1
+	}
+	return 1 + numDigits(n/10)
 }
