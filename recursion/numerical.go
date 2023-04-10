@@ -1,8 +1,11 @@
 package recursion
 
 // power of a number.
-func power(n int) int {
-	return 0
+func power(base int, exponent int) int {
+	if exponent == 0 {
+		return 1
+	}
+	return base * power(base, exponent-1)
 }
 
 // sum of digits of a number.

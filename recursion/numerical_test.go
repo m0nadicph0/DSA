@@ -81,3 +81,28 @@ func Test_numDigits(t *testing.T) {
 		})
 	}
 }
+
+func Test_power(t *testing.T) {
+
+	tests := []struct {
+		name           string
+		base, exponent int
+		want           int
+	}{
+		{"0^0 edge case", 0, 0, 1},
+		{"base to 0 power", 2, 0, 1},
+		{"0 to non-zero power", 0, 3, 0},
+		{"any number to the power of 0 is 1", 1, 100, 1},
+		{"negative base and odd exponent", -2, 3, -8},
+		{"negative base and even exponent", -2, 4, 16},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			got := power(tt.base, tt.exponent)
+			if got != tt.want {
+				t.Errorf("power(%d, %d) = %d; want %d", tt.base, tt.exponent, got, tt.want)
+			}
+		})
+	}
+}
