@@ -185,8 +185,8 @@ In other words, the running time of the recursive permutation generation algorit
 9.  Write a recursive function to calculate the power of a number. [[code](https://github.com/m0nadicph0/DSA/blob/main/recursion/numerical.go#L4)]
 10. Write a recursive function to find the sum of digits of a number. [[code](https://github.com/m0nadicph0/DSA/blob/main/recursion/numerical.go#L9)]
 11. Write a recursive function to find the number of digits in a number. [[code](https://github.com/m0nadicph0/DSA/blob/main/recursion/numerical.go#L14)]
-12. Write a recursive function to find the minimum element in an array.
-13. Write a recursive function to find the maximum element in an array.
+12. Write a recursive function to find the minimum element in an array. [[code](https://github.com/m0nadicph0/DSA/blob/main/recursion/collections.go#L24)]
+13. Write a recursive function to find the maximum element in an array.[[code](https://github.com/m0nadicph0/DSA/blob/main/recursion/collections.go#L32)]
 14. Write a recursive function to check if an array is sorted in ascending order.
 15. Write a recursive function to check if an array is sorted in descending order.
 16. Write a recursive function to search for an element in an array.
@@ -203,7 +203,6 @@ In other words, the running time of the recursive permutation generation algorit
 27. Write a recursive function to calculate the sum of the digits of a binary number.
 28. Write a recursive function to calculate the sum of the digits of a hexadecimal number.
 29. Write a recursive function to calculate the sum of the digits of an octal number.
-30. Write a recursive function to calculate the sum of the digits of a decimal number.
 
 ## Intermediate Problems
 1.  Write a recursive function to generate all permutations of a string.
