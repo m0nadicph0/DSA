@@ -116,3 +116,88 @@ here are some more examples of greedy problems and candidate solutions:
 
 In each of these examples, the candidate solutions are generated based on some heuristic or rule that appears to be the best locally, and the globally optimal solution is determined by evaluating the set of candidate solutions according to the objective function and constraints of the problem.
 
+##  Activity selection problem
+
+here is an explanatory solution for the Activity selection problem based on the general format of greedy algorithms:
+
+1.  _Define the problem and candidate solutions_: The Activity selection problem involves selecting a maximum number of non-overlapping activities from a set of activities, each with a start time and end time. The candidate solutions are the activities themselves, and the objective is to select the maximum number of non-overlapping activities.
+    
+2.  _Identify a criterion for evaluating the candidate solutions_: The criterion for evaluating the candidate solutions is the end time of each activity. The objective is to select the maximum number of non-overlapping activities with the earliest possible end times.
+    
+3.  _Define a rule for selecting the best candidate solution:_ The rule for selecting the best candidate solution is to always choose the activity with the earliest end time that does not overlap with any previously chosen activity. This is based on the assumption that selecting activities with earlier end times will leave more opportunities for selecting additional activities later.
+    
+4.  _Repeat the selection rule until a satisfactory solution is found:_ We start by sorting the activities in ascending order of their end times. We then iterate through the sorted list of activities, and at each step, we select the activity with the earliest end time that does not overlap with any previously chosen activity. We continue this process until all activities have been considered or no further activities can be selected.
+    
+
+By following this greedy algorithm, we can select a maximum number of non-overlapping activities with the earliest possible end times, which is the globally optimal solution to the Activity selection problem.
+
+```go
+package main
+
+import (
+    "fmt"
+    "sort"
+)
+
+type Activity struct {
+    start int
+    end   int
+}
+
+// A function to sort activities by their end times in ascending order
+func sortByEndTime(activities []Activity) {
+    sort.Slice(activities, func(i, j int) bool {
+        return activities[i].end < activities[j].end
+    })
+}
+
+// A function to select the maximum number of non-overlapping activities
+func selectActivities(activities []Activity) []Activity {
+    var selected []Activity
+
+    // Sort activities by their end times
+    sortByEndTime(activities)
+
+    // Select the first activity
+    selected = append(selected, activities[0])
+    lastSelected := 0
+
+    // Iterate through the remaining activities
+    for i := 1; i < len(activities); i++ {
+        // Check if the current activity overlaps with the last selected activity
+        if activities[i].start >= activities[lastSelected].end {
+            // If not, select the current activity and update the last selected activity
+            selected = append(selected, activities[i])
+            lastSelected = i
+        }
+    }
+
+    return selected
+}
+
+func main() {
+    // Define a set of activities
+    activities := []Activity{
+        {1, 3},
+        {2, 5},
+        {3, 6},
+        {4, 7},
+        {5, 9},
+        {6, 8},
+        {7, 10},
+        {8, 11},
+        {9, 12},
+        {10, 14},
+    }
+
+    // Select the maximum number of non-overlapping activities
+    selected := selectActivities(activities)
+
+    // Print the selected activities
+    fmt.Println("Selected activities:")
+    for _, activity := range selected {
+        fmt.Printf("Start time: %d, End time: %d\n", activity.start, activity.end)
+    }
+}
+```
+
