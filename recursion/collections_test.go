@@ -152,3 +152,144 @@ func Test_maximum(t *testing.T) {
 		})
 	}
 }
+
+func Test_isSortedAscending(t *testing.T) {
+	testCases := []struct {
+		name     string
+		input    []int
+		expected bool
+	}{
+		{
+			name:     "non-empty array of size 1",
+			input:    []int{2},
+			expected: true,
+		},
+		{
+			name:     "non-empty array",
+			input:    []int{2, 4, 6, 8},
+			expected: true,
+		},
+		{
+			name:     "non-empty array variant 1",
+			input:    []int{10, 2, 8, 4, 1, 1, 22, 3004},
+			expected: false,
+		},
+		{
+			name:     "non-empty array variant 2",
+			input:    []int{6, 5, 4, 3, 2, 1},
+			expected: false,
+		},
+		{
+			name:     "non-empty array variant 3",
+			input:    []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10},
+			expected: true,
+		},
+		{
+			name:     "non-empty array variant 4",
+			input:    []int{1, 1, 1, 1, 1},
+			expected: true,
+		},
+		{
+			name:     "non-empty array variant 5",
+			input:    []int{1, 1, 2, 2, 2},
+			expected: true,
+		},
+	}
+	for _, tc := range testCases {
+		t.Run(tc.name, func(t *testing.T) {
+			actual := isSortedAscending(tc.input)
+			if actual != tc.expected {
+				t.Errorf("expected isSortedAscending()=%v, but got=%v", tc.expected, actual)
+			}
+		})
+	}
+}
+
+func Test_isSortedDescending(t *testing.T) {
+	testCases := []struct {
+		name     string
+		input    []int
+		expected bool
+	}{
+		{
+			name:     "non-empty array of size 1",
+			input:    []int{2},
+			expected: true,
+		},
+		{
+			name:     "non-empty array",
+			input:    []int{2, 4, 6, 8},
+			expected: false,
+		},
+		{
+			name:     "non-empty array variant 1",
+			input:    []int{6, 5, 4, 3, 2, 1},
+			expected: true,
+		},
+		{
+			name:     "non-empty array variant 2",
+			input:    []int{1, 2, 3, 4, 5, 6, 7},
+			expected: false,
+		},
+		{
+			name:     "non-empty array variant 3",
+			input:    []int{1, 1, 1, 1, 1},
+			expected: true,
+		},
+		{
+			name:     "non-empty array variant 4",
+			input:    []int{2, 2, 2, 1, 1},
+			expected: true,
+		},
+	}
+	for _, tc := range testCases {
+		t.Run(tc.name, func(t *testing.T) {
+			actual := isSortedDescending(tc.input)
+			if actual != tc.expected {
+				t.Errorf("expected isSortedDescending()=%v, but got=%v", tc.expected, actual)
+			}
+		})
+	}
+}
+
+func Test_search(t *testing.T) {
+	testCases := []struct {
+		name     string
+		input    []int
+		target   int
+		expected bool
+	}{
+		{
+			name:     "empty array",
+			input:    []int{},
+			target:   2,
+			expected: false,
+		},
+		{
+			name:     "non-empty array of size 1",
+			input:    []int{2},
+			target:   2,
+			expected: true,
+		},
+		{
+			name:     "non-empty array",
+			input:    []int{2, 4, 6, 8},
+			target:   8,
+			expected: true,
+		},
+		{
+			name:     "non-empty array variant 1",
+			input:    []int{6, 5, 4, 3, 2, 1},
+			target:   0,
+			expected: false,
+		},
+	}
+	for _, tc := range testCases {
+		t.Run(tc.name, func(t *testing.T) {
+			actual := search(tc.input, tc.target)
+			if actual != tc.expected {
+				t.Errorf("expected search()=%v, but got=%v", tc.expected, actual)
+			}
+		})
+	}
+}

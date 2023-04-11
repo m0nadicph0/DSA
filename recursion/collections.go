@@ -51,3 +51,37 @@ func max(a int, b int) int {
 		return b
 	}
 }
+
+func isSortedAscending(nums []int) bool {
+	if len(nums) <= 1 {
+		return true
+	}
+
+	if nums[0] > nums[1] {
+		return false
+	}
+
+	return isSortedAscending(nums[1:])
+}
+
+func isSortedDescending(nums []int) bool {
+	if len(nums) <= 1 {
+		return true
+	}
+
+	if nums[0] < nums[1] {
+		return false
+	}
+
+	return isSortedDescending(nums[1:])
+}
+
+func search(nums []int, target int) bool {
+	if len(nums) == 0 {
+		return false
+	}
+	if nums[0] == target {
+		return true
+	}
+	return search(nums[1:], target)
+}
