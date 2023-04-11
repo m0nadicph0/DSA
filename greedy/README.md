@@ -200,4 +200,70 @@ func main() {
     }
 }
 ```
+## Easy Problems
+
+1.  Maximum Subarray Problem
+2.  Coin Change Problem
+3.  Activity Selection Problem
+4.  Fractional Knapsack Problem
+5.  Huffman Coding Problem
+6.  Job Sequencing Problem
+7.  Minimum Spanning Tree Problem
+8.  Shortest Path Problem
+9.  Largest Rectangle in a Histogram Problem
+10. Minimum Cost for Connecting Rods Problem
+11. Smallest Subset Sum Problem
+12. Find the k-th smallest element in an unsorted array Problem
+13. Water Connection Problem
+14. Building Bridges Problem
+15. Maximum and Minimum Product Subsets Problem
+16. Longest Increasing Subsequence Problem
+17. Minimum Platforms Problem
+18. Trapping Rain Water Problem
+19. Buy Maximum Stocks if i stocks can be bought on i-th day Problem
+20. Find the largest number with given digit sum Problem
+21. Assign Mice to Holes Problem
+22. Connect n ropes with minimum cost Problem
+23. Minimum Operations to Make Array Equal Problem
+24. Minimum Average Waiting Time Problem
+25. Greedy Algorithm to find Minimum number of Coins Problem
+26. Greedy Algorithm to find Minimum number of Notes Problem
+27. Minimum Difference between any two elements in an array Problem
+28. Partition problem Problem
+29. Maximum sum of absolute differences of an array Problem
+30. K Centers Problem
+
+## Intermediate problems
+
+1.  Gas Station Problem
+2.  Longest Common Subsequence Problem
+3.  Huffman Decoding Problem
+4.  Minimum Number of Arrows to Burst Balloons Problem
+5.  Non-overlapping Intervals Problem
+6.  Minimum Swaps Required to Sort an Array Problem
+7.  Job Scheduling Problem with Deadlines
+8.  Shortest Superstring Problem
+9.  Maximum Sum of Subarray with at least k elements Problem
+10. Smallest Range Covering Elements from K Lists Problem
+11. Maximum Profit in Job Scheduling Problem
+12. Kruskal's Algorithm for Minimum Spanning Tree Problem
+13. Dijkstra's Algorithm for Shortest Path Problem
+14. Minimum Cost to Connect Ropes Problem
+15. Maximum Sum of Pairs with Specific Difference Problem
+16. Maximum Length Chain of Pairs Problem
+17. Minimum Operations to Make a Sequence Increasing Problem
+18. Largest Number Formed from an Array Problem
+19. Minimum Window Substring Problem
+20. Minimum Cost to Cut a Board into Squares Problem
+21. Partition Array into Disjoint Intervals Problem
+22. Smallest String With Swaps Problem
+23. Find the Smallest Divisor Given a Threshold Problem
+24. Jump Game II Problem
+25. Minimum Refueling Stops Problem
+26. Smallest Subsequence of Distinct Characters Problem
+27. Rearrange String k Distance Apart Problem
+28. Remove K Digits Problem
+29. Greedy Algorithm for Egyptian Fraction Problem
+30. Minimum Path Sum of Triangle Problem
+
 
