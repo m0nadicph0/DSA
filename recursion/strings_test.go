@@ -39,3 +39,40 @@ func Test_reverse(t *testing.T) {
 		})
 	}
 }
+
+func Test_isPalindrome(t *testing.T) {
+	testCases := []struct {
+		name     string
+		input    string
+		expected bool
+	}{
+		{
+			name:     "empty string",
+			input:    "",
+			expected: true,
+		},
+		{
+			name:     "non-empty string",
+			input:    "abc",
+			expected: false,
+		},
+		{
+			name:     "palindrome",
+			input:    "madam",
+			expected: true,
+		},
+		{
+			name:     "multi-word palindrome",
+			input:    "able was i ere i saw elba",
+			expected: true,
+		},
+	}
+	for _, tc := range testCases {
+		t.Run(tc.name, func(t *testing.T) {
+			actual := isPalindrome(tc.input)
+			if actual != tc.expected {
+				t.Errorf("expected isPalindrome()=%t, got=%t", tc.expected, actual)
+			}
+		})
+	}
+}

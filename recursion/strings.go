@@ -10,5 +10,15 @@ func reverse(s string) string {
 
 // Check if a string is a palindrome.
 func isPalindrome(s string) bool {
-	return false
+
+	switch len(s) {
+	case 0:
+		return true
+	case 1:
+		return true
+	case 2:
+		return s[0] == s[1]
+	default:
+		return s[0] == s[len(s)-1] && isPalindrome(s[1:len(s)-1])
+	}
 }
