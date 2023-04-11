@@ -187,9 +187,9 @@ In other words, the running time of the recursive permutation generation algorit
 11. Write a recursive function to find the number of digits in a number. [[code](https://github.com/m0nadicph0/DSA/blob/main/recursion/numerical.go#L14)]
 12. Write a recursive function to find the minimum element in an array. [[code](https://github.com/m0nadicph0/DSA/blob/main/recursion/collections.go#L24)]
 13. Write a recursive function to find the maximum element in an array.[[code](https://github.com/m0nadicph0/DSA/blob/main/recursion/collections.go#L32)]
-14. Write a recursive function to check if an array is sorted in ascending order.
-15. Write a recursive function to check if an array is sorted in descending order.
-16. Write a recursive function to search for an element in an array.
+14. Write a recursive function to check if an array is sorted in ascending order. [[code](https://github.com/m0nadicph0/DSA/blob/main/recursion/collections.go#L55)]
+15. Write a recursive function to check if an array is sorted in descending order. [[code](https://github.com/m0nadicph0/DSA/blob/main/recursion/collections.go#L67)]
+16. Write a recursive function to search for an element in an array. [[code](https://github.com/m0nadicph0/DSA/blob/main/recursion/collections.go#L79)]
 17. Write a recursive function to calculate the nth triangular number.
 18. Write a recursive function to calculate the sum of the first n natural numbers.
 19. Write a recursive function to calculate the sum of the first n even numbers.
