@@ -87,3 +87,68 @@ func Test_product(t *testing.T) {
 		})
 	}
 }
+
+func Test_minimum(t *testing.T) {
+
+	testCases := []struct {
+		name     string
+		input    []int
+		expected int
+	}{
+		{
+			name:     "non-empty array of size 1",
+			input:    []int{2},
+			expected: 2,
+		},
+		{
+			name:     "non-empty array",
+			input:    []int{2, 4, 6, 8},
+			expected: 2,
+		},
+		{
+			name:     "non-empty array variant 1",
+			input:    []int{10, 2, 8, 4, 1, 1, 22, 3004},
+			expected: 1,
+		},
+	}
+	for _, tc := range testCases {
+		t.Run(tc.name, func(t *testing.T) {
+			actual := minimum(tc.input)
+			if actual != tc.expected {
+				t.Errorf("expected minimum()=%v, but got=%v", tc.expected, actual)
+			}
+		})
+	}
+}
+
+func Test_maximum(t *testing.T) {
+	testCases := []struct {
+		name     string
+		input    []int
+		expected int
+	}{
+		{
+			name:     "non-empty array of size 1",
+			input:    []int{2},
+			expected: 2,
+		},
+		{
+			name:     "non-empty array",
+			input:    []int{2, 4, 6, 8},
+			expected: 8,
+		},
+		{
+			name:     "non-empty array variant 1",
+			input:    []int{10, 2, 8, 4, 1, 1, 22, 3004},
+			expected: 3004,
+		},
+	}
+	for _, tc := range testCases {
+		t.Run(tc.name, func(t *testing.T) {
+			actual := maximum(tc.input)
+			if actual != tc.expected {
+				t.Errorf("expected maximum()=%v, but got=%v", tc.expected, actual)
+			}
+		})
+	}
+}

@@ -19,3 +19,35 @@ func product(nums []int) int {
 		return nums[0] * product(nums[1:])
 	}
 }
+
+//Minimum element in an array.
+func minimum(nums []int) int {
+	if len(nums) == 1 {
+		return nums[0]
+	}
+	return min(nums[0], minimum(nums[1:]))
+}
+
+//Maximum element in an array.
+func maximum(nums []int) int {
+	if len(nums) == 1 {
+		return nums[0]
+	}
+	return max(nums[0], maximum(nums[1:]))
+}
+
+func min(a int, b int) int {
+	if a < b {
+		return a
+	} else {
+		return b
+	}
+}
+
+func max(a int, b int) int {
+	if a > b {
+		return a
+	} else {
+		return b
+	}
+}
