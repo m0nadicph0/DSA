@@ -196,7 +196,6 @@ In other words, the running time of the recursive permutation generation algorit
 20. Write a recursive function to calculate the sum of the first n odd numbers.
 21. Write a recursive function to print the numbers from 1 to n.
 22. Write a recursive function to print the numbers from n to 1.
-23. Write a recursive function to print the numbers from 1 to n in reverse order.
 24. Write a recursive function to calculate the product of the first n natural numbers.
 25. Write a recursive function to calculate the product of the first n even numbers.
 26. Write a recursive function to calculate the product of the first n odd numbers.
