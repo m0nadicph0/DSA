@@ -200,8 +200,6 @@ In other words, the running time of the recursive permutation generation algorit
 25. Write a recursive function to calculate the product of the first n even numbers.
 26. Write a recursive function to calculate the product of the first n odd numbers.
 27. Write a recursive function to calculate the sum of the digits of a binary number.
-28. Write a recursive function to calculate the sum of the digits of a hexadecimal number.
-29. Write a recursive function to calculate the sum of the digits of an octal number.
 
 ## Intermediate Problems
 1.  Write a recursive function to generate all permutations of a string.

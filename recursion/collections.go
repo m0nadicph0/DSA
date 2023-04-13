@@ -52,6 +52,7 @@ func max(a int, b int) int {
 	}
 }
 
+// Check if an array is sorted in ascending order
 func isSortedAscending(nums []int) bool {
 	if len(nums) <= 1 {
 		return true
@@ -64,6 +65,7 @@ func isSortedAscending(nums []int) bool {
 	return isSortedAscending(nums[1:])
 }
 
+// Check if an array is sorted in descending order
 func isSortedDescending(nums []int) bool {
 	if len(nums) <= 1 {
 		return true
@@ -76,6 +78,7 @@ func isSortedDescending(nums []int) bool {
 	return isSortedDescending(nums[1:])
 }
 
+// Search for an element in an array
 func search(nums []int, target int) bool {
 	if len(nums) == 0 {
 		return false
