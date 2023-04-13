@@ -190,16 +190,16 @@ In other words, the running time of the recursive permutation generation algorit
 14. Write a recursive function to check if an array is sorted in ascending order. [[code](https://github.com/m0nadicph0/DSA/blob/main/recursion/collections.go#L55)]
 15. Write a recursive function to check if an array is sorted in descending order. [[code](https://github.com/m0nadicph0/DSA/blob/main/recursion/collections.go#L67)]
 16. Write a recursive function to search for an element in an array. [[code](https://github.com/m0nadicph0/DSA/blob/main/recursion/collections.go#L79)]
-17. Write a recursive function to calculate the nth triangular number.
-18. Write a recursive function to calculate the sum of the first n natural numbers.
-19. Write a recursive function to calculate the sum of the first n even numbers.
-20. Write a recursive function to calculate the sum of the first n odd numbers.
-21. Write a recursive function to print the numbers from 1 to n.
-22. Write a recursive function to print the numbers from n to 1.
-24. Write a recursive function to calculate the product of the first n natural numbers.
-25. Write a recursive function to calculate the product of the first n even numbers.
-26. Write a recursive function to calculate the product of the first n odd numbers.
-27. Write a recursive function to calculate the sum of the digits of a binary number.
+17. Write a recursive function to calculate the nth triangular number.[[code](https://github.com/m0nadicph0/DSA/blob/main/recursion/numerical.go#L28)]
+18. Write a recursive function to calculate the sum of the first n natural numbers. [[code](https://github.com/m0nadicph0/DSA/blob/main/recursion/numerical.go#L36)]
+19. Write a recursive function to calculate the sum of the first n even numbers. [[code](https://github.com/m0nadicph0/DSA/blob/main/recursion/numerical.go#L44)]
+20. Write a recursive function to calculate the sum of the first n odd numbers. [[code](https://github.com/m0nadicph0/DSA/blob/main/recursion/numerical.go#L52)]
+21. Write a recursive function to print the numbers from 1 to n. [[code](https://github.com/m0nadicph0/DSA/blob/main/recursion/numerical.go#L60)]
+22. Write a recursive function to print the numbers from n to 1. [[code](https://github.com/m0nadicph0/DSA/blob/main/recursion/numerical.go#L69)]
+24. Write a recursive function to calculate the product of the first n natural numbers. [[code](https://github.com/m0nadicph0/DSA/blob/main/recursion/numerical.go#L78)]
+25. Write a recursive function to calculate the product of the first n even numbers. [[code](https://github.com/m0nadicph0/DSA/blob/main/recursion/numerical.go#L86)]
+26. Write a recursive function to calculate the product of the first n odd numbers. [[code](https://github.com/m0nadicph0/DSA/blob/main/recursion/numerical.go#L94)]
+27. Write a recursive function to calculate the sum of the digits of a binary number.[[code](https://github.com/m0nadicph0/DSA/blob/main/recursion/numerical.go#L102)]
 
 ## Intermediate Problems
 1.  Write a recursive function to generate all permutations of a string.
